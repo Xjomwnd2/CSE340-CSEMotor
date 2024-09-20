@@ -4,3 +4,68 @@
 *:after {
   box-sizing: border-box;
 }
+
+/* Mobile First CSS */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 1rem;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.products {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/* Larger Screens */
+@media only screen and (min-width: 768px) {
+    .products {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .product-item {
+        width: 45%;
+    }
+}
