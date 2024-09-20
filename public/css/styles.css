@@ -58,6 +58,16 @@ main {
     background-color: #fff;
 }
 
+/* Footer styles */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+
 /* Larger Screens */
 @media only screen and (min-width: 768px) {
     .products {
