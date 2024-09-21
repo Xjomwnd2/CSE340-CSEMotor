@@ -129,6 +129,11 @@ header {
     color: #fff;
     padding: 1rem;
     text-align: center;
+
+    nav ul li {
+      display: inline;
+      margin-right: 10px;
+  }
 }
 
 nav ul {
@@ -136,10 +141,6 @@ nav ul {
     padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 10px;
-}
 
 a {
     color: #fff;
