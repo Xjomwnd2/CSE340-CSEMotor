@@ -324,6 +324,18 @@ footer {
 /* Delorean Upgrades and Reviews section */
 .upgrades-reviews {
   display: flex;
+  justify-content: space-between; /* Space between upgrades and reviews */
+  max-width: auto; /* Max width of the section */
+  width: auto;
+  gap: 40px; /* Gap between upgrades and reviews sections */
+  margin-top: 30px; /* Spacing from the top */
+  border: 3px solid #6b99f7; /* Slightly thinner border */
+  border-radius: 15px; /* Increased border radius for softer edges */
+  padding: 25px; /* Slightly more padding for better spacing */
+}
+
+.upgrades-reviews {
+  display: flex;
   justify-content: space-between;
   max-width: 100%;
   width: 100%;
