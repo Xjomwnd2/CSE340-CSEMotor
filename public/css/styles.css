@@ -355,6 +355,33 @@ footer {
   margin-top: 20px;
 }
 
+/* ////// */
+.upgrades {
+  display: flex;
+  flex-wrap: wrap; /* Allows the items to wrap to the next line */
+  justify-content: center; /* Center the items horizontally */
+  gap: 20px; /* Spacing between the items */
+  margin-top: 20px;
+  text-align: center;
+}
+
+.upgrades div {
+  width: 150px; /* Set a fixed width for each upgrade item */
+}
+
+.upgrades img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px; /* Adds space between image and text */
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.upgrades a {
+  text-decoration: none;
+  color: #00f;
+}
+
 /*  //////////////////////////      */
 /* Footer styles */
 footer {
