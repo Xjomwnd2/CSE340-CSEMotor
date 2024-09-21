@@ -249,7 +249,13 @@ h1 {
   color: #333;
   margin-bottom: 20px;
 }
-
+/* //////////////////////images//////////////updates///////// */
+.upgrades img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+/* ///////////////////////////////////////////////////////////*/
 .delorean-section {
   display: flex;
   flex-direction: column;
