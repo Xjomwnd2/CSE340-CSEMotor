@@ -391,7 +391,7 @@ footer {
 }
 
 .upgrades img {
-  width: 100px; /* Image size */
+  width: auto; /* Image size */
   height: auto; /* Keep aspect ratio */
   margin-bottom: 10px; /* Space between image and text */
 }
