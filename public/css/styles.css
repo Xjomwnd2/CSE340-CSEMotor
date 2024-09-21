@@ -16,8 +16,18 @@ body {
 }
 
 /*///////////////////////////*/
+/* **************************************
+* Navigation Bar CSS
+* ************************************ */
 
-/*//////////////////////////////////////////////*/
+header {
+  width: 100%;
+  background-color: #333; /* Change to your desired background color */
+  position: fixed; /* Fix the header in place */
+  top: 0; /* Align at the top of the page */
+  left: 0;
+  z-index: 1000; /* Ensure it stays above other content */
+}
 
 nav {
   display: flex; /* Aligns nav items in a row */
@@ -131,7 +141,7 @@ nav ul li {
   margin-right: 10px;
   background-color: #fff;
 
-  margin: 10px 0; /* Add top and bottom margin for spacing */
+  margin: 0px 0; /* Add top and bottom margin for spacing */
   border: 3px solid #6b99f7; /* Slightly thinner border */
   border-radius: 15px; /* Increased border radius for softer edges */
   padding: 25px; /* Slightly more padding for better spacing */
