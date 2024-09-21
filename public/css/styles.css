@@ -29,7 +29,7 @@ header {
   z-index: 1000; /* Ensure it stays above other content */
 }
 /*//////////////////LOGO/////////////////////////*/
-//* Flexbox to position logo and account */
+/* Flexbox to position logo and account */
 nav {
   display: flex;
   justify-content: space-between; /* Pushes "CSE Motors" to the left and "My Account" to the right */
