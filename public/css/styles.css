@@ -374,21 +374,38 @@ footer {
   text-align: center;
 }
 
-.upgrades div {
-  width: 150px; /* Set a fixed width for each upgrade item */
+/* Delorean Upgrades and Reviews section */
+.upgrades-reviews {
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  width: 100%;
+  gap: 40px;
+  margin-top: 30px;
 }
-
-.upgrades img {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px; /* Adds space between image and text */
-  border: 2px solid #ccc;
+.upgrades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.upgrades div {
+  background-color: #00aaff;
+  padding: 20px;
+  text-align: center;
   border-radius: 5px;
 }
-
+.upgrades img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
 .upgrades a {
   text-decoration: none;
-  color: #00f;
+  color: #333;
+  font-size: 1rem;
+}
+.upgrades a:hover {
+  color: #007acc;
 }
 /* Reviews section */
 .reviews {
@@ -411,8 +428,6 @@ footer {
   color: #666;
   font-size: 1rem;
 }
-
-
 /*  //////////////////////////      */
 /* Footer styles */
 footer {
