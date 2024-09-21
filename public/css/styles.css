@@ -141,7 +141,7 @@ nav ul li {
   margin-right: 10px;
   background-color: #fff;
 
-  margin: 40px 0; /* Add top and bottom margin for spacing */
+  margin: 10px 0; /* Add top and bottom margin for spacing */
   border: 3px solid #6b99f7; /* Slightly thinner border */
   border-radius: 15px; /* Increased border radius for softer edges */
   padding: 25px; /* Slightly more padding for better spacing */
