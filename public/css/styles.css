@@ -325,8 +325,8 @@ footer {
 .upgrades {
   display: flex;
   justify-content: space-between; /* Space between upgrades and reviews */
-  max-width: auto; /* Max width of the section */
-  width: auto;
+  max-width: 200px; /* Max width of the section */
+  width: 200px;
   gap: 40px; /* Gap between upgrades and reviews sections */
   margin-top: 30px; /* Spacing from the top */
   border: 3px solid #6b99f7; /* Slightly thinner border */
