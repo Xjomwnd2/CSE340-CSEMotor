@@ -16,50 +16,7 @@ body {
 }
 
 /*///////////////////////////*/
-/* **************************************
-* Navigation Bar CSS
-* ************************************ */
 
-header {
-  width: 100%;
-  background-color: #333; /* Change to your desired background color */
-  position: fixed; /* Fix the header in place */
-  top: 0; /* Align at the top of the page */
-  left: 0;
-  z-index: 1000; /* Ensure it stays above other content */
-}
-/*//////////////////LOGO/////////////////////////*/
-/* Flexbox to position logo and account */
-nav {
-  display: flex;
-  justify-content: space-between; /* Pushes "CSE Motors" to the left and "My Account" to the right */
-  align-items: center; /* Aligns vertically in the center */
-  padding: 0 20px; /* Optional padding for space around the items */
-}
-
-/* Styles for the logo */
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: white;
-}
-
-/* Styles for the My Account link */
-.account {
-  font-size: 1em;
-  color: white;
-}
-
-.account a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-}
-
-.account a:hover {
-  background-color: #575757; /* Hover effect */
-  border-radius: 5px;
-}
 /*//////////////////////////////////////////////*/
 
 nav {
