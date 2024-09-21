@@ -139,6 +139,7 @@ nav ul {
 nav ul li {
   display: inline;
   margin-right: 10px;
+  background-color: #333;
 }
 
 a {
