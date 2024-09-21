@@ -213,7 +213,8 @@ main {
   border: 3px solid #6b99f7; /* Slightly thinner border */
   border-radius: 15px; /* Increased border radius for softer edges */
   padding: 25px; /* Slightly more padding for better spacing */
-  width: 90%; /* Adjusted width for balance */
+  height: 100%;
+  width: auto; /* Adjusted width for balance */
   min-height: 65vh; /* Minimum height for better responsiveness */
   max-height: 85vh; /* Slightly reduced max height */
   margin: 20px auto; /* Added top margin for spacing */
@@ -226,8 +227,8 @@ main {
 }
 main img,
 .container img {
-  max-width: 90%; /* Reduce max width slightly for padding */
-  height: auto; /* Maintain image aspect ratio */
+  max-width: auto; /* Reduce max width slightly for padding */
+  height: 100%; /* Maintain image aspect ratio */
   margin: 10px 0; /* Add top and bottom margin for spacing */
   border-radius: 8px; /* Optional: Add slight rounding to images */
 }
