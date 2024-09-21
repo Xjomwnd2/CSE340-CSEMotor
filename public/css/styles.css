@@ -151,41 +151,10 @@ a {
     color: #fff;
     text-decoration: none;
 }
-/* LOGO ACCOUNT */
-/* Flexbox to position logo and account */
-nav {
-  display: flex;
-  justify-content: space-between; /* Pushes "CSE Motors" to the left and "My Account" to the right */
-  align-items: center; /* Aligns vertically in the center */
-  padding: 0 20px; /* Optional padding for space around the items */
-}
-
-/* Styles for the logo */
-.logo {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: white;
-}
-
-/* Styles for the My Account link */
-.account {
-  font-size: 1em;
-  color: white;
-}
-
-.account a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-}
-
-.account a:hover {
-  background-color: #575757; /* Hover effect */
-  border-radius: 5px;
-}
 
 /* /////////////*/
 /* //////////////////////// */
+
 main {
     background-color: #f9f9f9; /* Lighter background for contrast */
     border: 3px solid #6b99f7; /* Slightly thinner border */
