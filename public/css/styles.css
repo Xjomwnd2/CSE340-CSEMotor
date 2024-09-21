@@ -375,59 +375,69 @@ footer {
 }
 
 /* Delorean Upgrades and Reviews section */
-.upgrades-reviews {
-  display: flex;
-  justify-content: space-between;
-  max-width: 900px;
-  width: 900px;
-  gap: 40px;
-  margin-top: 30px;
-}
-.upgrades {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.upgrades div {
-  background-color: #00aaff;
+./* Overall section styling */
+.delorean-upgrades {
+  background-color: #f4f4f9; /* Light gray background for clean appearance */
   padding: 20px;
-  text-align: center;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  font-family: 'Arial', sans-serif; /* Clean font */
+  max-width: 800px;
+  margin: 0 auto; /* Center section on the page */
 }
-.upgrades img {
-  width: 100px;
-  height: auto;
+
+.delorean-upgrades h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Styling for each upgrade item */
+.upgrade-item {
+  background-color: #ffffff; /* White background for each upgrade item */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.upgrade-item:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow on hover */
+}
+
+/* Upgrade title */
+.upgrade-item h3 {
+  color: #007acc; /* Delorean-themed blue */
+  font-size: 1.5rem;
   margin-bottom: 10px;
 }
-.upgrades a {
-  text-decoration: none;
-  color: #333;
+
+/* Upgrade description */
+.upgrade-item p {
   font-size: 1rem;
+  color: #555; /* Soft dark gray for readability */
+  line-height: 1.6;
 }
-.upgrades a:hover {
-  color: #007acc;
-}
-/* Reviews section */
-.reviews {
-  flex: 1;
-  color: #333;
-}
-.reviews ul {
-  list-style-type: none;
-  padding: 0;
-}
-.reviews li {
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-}
-.reviews li::before {
-  content: '• ';
-  color: #00aaff;
-}
-.reviews .rating {
-  color: #666;
+
+/* Button for reading reviews */
+.read-review {
+  background-color: #007acc; /* Delorean-themed blue */
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
   font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
+
+.read-review:hover {
+  background-color: #005fa3; /* Darker blue on hover */
+}
+
 /*  //////////////////////////      */
 /* Footer styles */
 footer {
