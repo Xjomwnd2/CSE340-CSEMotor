@@ -375,15 +375,6 @@ footer {
 }
 
 /* Delorean Upgrades and Reviews section */
-//* Delorean Upgrades and Reviews section */
-.upgrades-reviews {
-  display: flex;
-  justify-content: space-between; /* Space between upgrades and reviews */
-  max-width: 900px; /* Max width of the section */
-  width: 100%;
-  gap: 40px; /* Gap between upgrades and reviews sections */
-  margin-top: 30px; /* Spacing from the top */
-}
 
 /* Upgrades section */
 .upgrades {
