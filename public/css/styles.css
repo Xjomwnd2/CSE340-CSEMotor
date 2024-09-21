@@ -168,6 +168,15 @@ header .account {
   border-radius: 5px;
 }
 
+.button {
+  padding: 10px;
+  text-align: center;
+  max-width: 80%;
+  color: #ffffff;
+  background-color: #4c96d7;
+  text-decoration: none;
+}
+
 .hero button:hover {
   background-color: #0056b3;
 }
