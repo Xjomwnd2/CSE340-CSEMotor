@@ -322,7 +322,7 @@ footer {
 
 /* //////////////////////////////////////////////*/  
 /* Delorean Upgrades and Reviews section */
-.upgrades-reviews {
+.upgrades {
   display: flex;
   justify-content: space-between; /* Space between upgrades and reviews */
   max-width: auto; /* Max width of the section */
