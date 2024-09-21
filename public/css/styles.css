@@ -16,38 +16,113 @@ body {
 }
 
 /*///////////////////////////*/
+/* **************************************
+* Navigation Bar CSS
+* ************************************ */
+
 header {
-    width: 100%;
-    background-color: #333; /* Change to your desired background color */
-    position: fixed; /* This will fix the header in place */
-    top: 0; /* Make sure it's stuck at the top of the page */
-    left: 0;
-    z-index: 1000; /* Ensures it's on top of other content */
-  }
-  
+  width: 100%;
+  background-color: #333; /* Change to your desired background color */
+  position: fixed; /* Fix the header in place */
+  top: 0; /* Align at the top of the page */
+  left: 0;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+nav {
+  display: flex; /* Aligns nav items in a row */
+  justify-content: space-around; /* Spacing between nav items */
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+nav a {
+  color: white; /* Navigation link color */
+  text-decoration: none;
+  padding: 10px;
+}
+
+nav a:hover {
+  background-color: #575757; /* Hover effect for nav items */
+  border-radius: 5px;
+}
+
+/* Body padding to prevent the fixed header from overlapping the content */
+body {
+  padding-top: 60px; /* Adjust depending on your header height */
+}
+
+/* **************************************
+* Classification Grid CSS
+* ************************************ */
+
+/* Styles for the grid container */
+#inv-display {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 20px; /* Space between grid items */
+}
+
+/* Styles for each grid item */
+#inv-display li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for each item */
+  transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+/* Hover effect for grid items */
+#inv-display li:hover {
+  transform: translateY(-5px); /* Lift the item slightly on hover */
+}
+
+/* Styles for the vehicle image */
+#inv-display li img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Ensures proper spacing around the image */
+  margin-bottom: 15px;
+}
+
+/* Styles for the name and price section */
+.namePrice {
+  margin-top: 10px;
+}
+
+.namePrice h2 {
+  margin: 0;
+  font-size: 1.2em; /* Adjust font size for headings */
+}
+
+.namePrice span {
+  font-weight: bold;
+  color: #007bff; /* Color for the price */
+  display: block;
+  margin-top: 5px;
+}
+
+/* Styles for the notice paragraph */
+.notice {
+  text-align: center;
+  font-style: italic;
+  color: #999;
+}
+
+/* Media Queries to ensure responsiveness */
+@media (max-width: 768px) {
   nav {
-    display: flex; /* Adjusts the nav items to be aligned in a row */
-    justify-content: space-around; /* Spaces out nav items evenly */
-    padding: 15px;
-    font-family: Arial, sans-serif;
+    flex-direction: column;
   }
-  
-  nav a {
-    color: white; /* Change to your desired text color */
-    text-decoration: none;
-    padding: 10px;
+
+  #inv-display {
+    grid-template-columns: 1fr; /* Stack grid items on small screens */
   }
-  
-  nav a:hover {
-    background-color: #575757; /* Change the hover effect */
-    border-radius: 5px;
-  }
-  
-  /* Add some padding to the top of the body to account for the fixed header */
-  body {
-    padding-top: 60px; /* Adjust this to match your header height */
-  }
-  
+}
+
 /*///////////////////////////*/
 header {
     background-color: #333;
