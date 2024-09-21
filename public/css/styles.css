@@ -331,7 +331,7 @@ footer {
   gap: 40px; /* Gap between upgrades and reviews sections */
   margin-top: 10px; /* Spacing from the top */
   border: 1px solid #6b99f7; /* Slightly thinner border */
-  border-radius: 15px; /* Increased border radius for softer edges */
+  border-radius: 0px; /* Increased border radius for softer edges */
   padding: 25px; /* Slightly more padding for better spacing */
 }
 
