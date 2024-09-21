@@ -140,6 +140,7 @@ nav ul li {
   display: inline;
   margin-right: 10px;
   background-color: #fff;
+  margin: 10px 0; /* Add top and bottom margin for spacing */
 }
 
 a {
