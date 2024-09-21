@@ -28,6 +28,31 @@ header {
   left: 0;
   z-index: 1000; /* Ensure it stays above other content */
 }
+/*//////////////////LOGO/////////////////////////*/
+/* Styles for the logo */
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+
+/* Styles for the My Account link */
+.account {
+  font-size: 1em;
+  color: white;
+}
+
+.account a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.account a:hover {
+  background-color: #575757; /* Hover effect */
+  border-radius: 5px;
+}
+/*//////////////////////////////////////////////*/
 
 nav {
   display: flex; /* Aligns nav items in a row */
