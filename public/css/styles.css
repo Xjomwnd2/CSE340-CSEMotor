@@ -321,6 +321,60 @@ footer {
 }
 
 /* //////////////////////////////////////////////*/  
+/* Delorean Upgrades and Reviews section */
+.upgrades-reviews {
+  display: flex;
+  justify-content: space-between;
+  max-width: 900px;
+  width: 100%;
+  gap: 40px;
+  margin-top: 30px;
+}
+.upgrades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.upgrades div {
+  background-color: #00aaff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+}
+.upgrades img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+.upgrades a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+}
+.upgrades a:hover {
+  color: #007acc;
+}
+/* Reviews section */
+.reviews {
+  flex: 1;
+  color: #333;
+}
+.reviews ul {
+  list-style-type: none;
+  padding: 0;
+}
+.reviews li {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+.reviews li::before {
+  content: '• ';
+  color: #00aaff;
+}
+.reviews .rating {
+  color: #666;
+  font-size: 1rem;
+}
 
 /*  //////////////////////////      */
 /* Footer styles */
