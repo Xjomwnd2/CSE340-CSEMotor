@@ -327,7 +327,7 @@ footer {
   justify-content: space-between; /* Space between upgrades and reviews */
   max-width: auto; /* Max width of the section */
   width: auto;
-  height: 500px;
+  height: auto;
   gap: 40px; /* Gap between upgrades and reviews sections */
   margin-top: 10px; /* Spacing from the top */
   border: 1px solid #6b99f7; /* Slightly thinner border */
