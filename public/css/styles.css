@@ -375,67 +375,70 @@ footer {
 }
 
 /* Delorean Upgrades and Reviews section */
-./* Overall section styling */
-.delorean-upgrades {
-  background-color: #f4f4f9; /* Light gray background for clean appearance */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  font-family: 'Arial', sans-serif; /* Clean font */
-  max-width: 800px;
-  margin: 0 auto; /* Center section on the page */
+//* Delorean Upgrades and Reviews section */
+.upgrades-reviews {
+  display: flex;
+  justify-content: space-between; /* Space between upgrades and reviews */
+  max-width: 900px; /* Max width of the section */
+  width: 100%;
+  gap: 40px; /* Gap between upgrades and reviews sections */
+  margin-top: 30px; /* Spacing from the top */
 }
 
-.delorean-upgrades h2 {
-  font-size: 2rem;
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
+/* Upgrades section */
+.upgrades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  gap: 20px; /* Space between each upgrade item */
 }
 
-/* Styling for each upgrade item */
-.upgrade-item {
-  background-color: #ffffff; /* White background for each upgrade item */
-  border: 1px solid #ddd; /* Light border */
-  border-radius: 6px;
-  padding: 15px;
-  margin-bottom: 20px;
-  transition: transform 0.2s, box-shadow 0.2s;
+.upgrades div {
+  background-color: #00aaff; /* Blue background for upgrade items */
+  padding: 20px; /* Padding inside the divs */
+  text-align: center; /* Center align text and images */
+  border-radius: 5px; /* Rounded corners */
 }
 
-.upgrade-item:hover {
-  transform: scale(1.02); /* Slight zoom on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Deeper shadow on hover */
+.upgrades img {
+  width: 100px; /* Image size */
+  height: auto; /* Keep aspect ratio */
+  margin-bottom: 10px; /* Space between image and text */
 }
 
-/* Upgrade title */
-.upgrade-item h3 {
-  color: #007acc; /* Delorean-themed blue */
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.upgrades a {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Dark text color */
+  font-size: 1rem; /* Regular font size for links */
 }
 
-/* Upgrade description */
-.upgrade-item p {
-  font-size: 1rem;
-  color: #555; /* Soft dark gray for readability */
-  line-height: 1.6;
+.upgrades a:hover {
+  color: #007acc; /* Change link color on hover */
 }
 
-/* Button for reading reviews */
-.read-review {
-  background-color: #007acc; /* Delorean-themed blue */
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+/* Reviews section */
+.reviews {
+  flex: 1; /* Take available space */
+  color: #333; /* Dark text color */
 }
 
-.read-review:hover {
-  background-color: #005fa3; /* Darker blue on hover */
+.reviews ul {
+  list-style-type: none; /* Remove default bullets */
+  padding: 0; /* Remove default padding */
+}
+
+.reviews li {
+  margin-bottom: 15px; /* Space between each review item */
+  font-size: 1.2rem; /* Larger font size for reviews */
+}
+
+.reviews li::before {
+  content: '• '; /* Custom bullet symbol */
+  color: #00aaff; /* Blue color for bullets */
+}
+
+.reviews .rating {
+  color: #666; /* Lighter color for rating text */
+  font-size: 1rem; /* Regular font size for ratings */
 }
 
 /*  //////////////////////////      */
