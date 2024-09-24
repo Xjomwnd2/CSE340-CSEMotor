@@ -1,0 +1,4 @@
+-- Assuming 'account_id' is the primary key for the 'account' table
+UPDATE account
+SET account_type = 'Admin'
+WHERE account_id = 1;
