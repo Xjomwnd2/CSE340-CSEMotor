@@ -224,6 +224,10 @@ header .account:hover {
             margin: 0 15px;
             text-decoration: none;
         }
+        .active {
+          background-color: #3498db; /* /// Example color/// */
+          color: white;
+      }      
         h1 {
             color: #000;
         }
