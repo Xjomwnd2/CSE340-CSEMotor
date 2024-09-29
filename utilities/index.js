@@ -1,9 +1,7 @@
 const invModel = require("../models/inventory-model")
 const Util = {}
 
-// Assuming data is being fetched or initialized somewhere
-const data = { key: "value" }; // Example data object
-logData(data);
+console.log(data)
 
 /* ************************
  * Constructs the nav HTML unordered list
