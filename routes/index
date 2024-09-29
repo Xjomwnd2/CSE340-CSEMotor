@@ -1,2 +1,3 @@
 // Index route
 app.get("/", baseController.buildHome)
+res.render('your-view', { nav: yourNavigationData });
