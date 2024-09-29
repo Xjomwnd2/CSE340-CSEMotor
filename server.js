@@ -16,7 +16,6 @@ const baseController = require("./controllers/baseController")
 /* ***********************
  * View Engine and Templates
  *************************/
-
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
