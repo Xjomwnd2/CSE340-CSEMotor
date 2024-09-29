@@ -1,7 +1,5 @@
-// utilities/index.js
-function logData(data) {
-  console.log("Before logging data:", data);
-}
+const invModel = require("../models/inventory-model")
+const Util = {}
 
 // Assuming data is being fetched or initialized somewhere
 const data = { key: "value" }; // Example data object
