@@ -13,10 +13,8 @@ const app = express()
 
 // Route and controller imports
 const static = require("./routes/static")
-const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute"); // Added require statement for inventoryRoute
 const utilities = require('./utilities/index'); // Utilities functions
-
 
 /* ***********************
  * View Engine and Templates
@@ -25,28 +23,25 @@ app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // Not at views root
 
-
 /* ***********************
  * Routes
  *************************/
 app.use(static)
 
 // Index route
-app.get("/", function(req, res){
-  res.render("index", {title: "Home"})
+app.get("/", (req, res) => {
+  res.render("index", { title: "Home" })
 })
 
 // Inventory routes
 app.use("/inv", inventoryRoute) // Now properly linked
 
-
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
  *************************/
-const port = process.env.PORT
-const host = process.env.HOST
-
+const port = process.env.PORT || 3000
+const host = process.env.HOST || 'localhost'
 
 /* ***********************
  * Express Error Handler
@@ -67,17 +62,18 @@ app.use(async (err, req, res, next) => {
   }
 })
 
-// Catch-all 404 handler for any routes that don't match
+// Catch-all 404 handler
 app.use((req, res, next) => {
   res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
 });
 
-// Error-handling middleware for all other errors
+// Error-handling middleware for other errors
 app.use((err, req, res, next) => {
-  console.error(err.stack); // Log error stack trace to the console (for debugging)
+  console.error(err.stack); // Log error stack trace
   res.status(500).render('errors/error', { title: 'Something Went Wrong', message: err.message });
 });
 
+// Start the server
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
