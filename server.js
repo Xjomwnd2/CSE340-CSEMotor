@@ -67,9 +67,6 @@ app.use(async (err, req, res, next) => {
   }
 })
 
-// FOR error.js in view folder
-// Other route handlers and middleware go above
-
 // Catch-all 404 handler for any routes that don't match
 app.use((req, res, next) => {
   res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
@@ -80,31 +77,6 @@ app.use((err, req, res, next) => {
   console.error(err.stack); // Log error stack trace to the console (for debugging)
   res.status(500).render('errors/error', { title: 'Something Went Wrong', message: err.message });
 });
-
-// Last route
-// File Not Found Route - must be last route in list
-app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
-})
-
-/* ***********************
- * Log statement to confirm server operation
- *************************/
-
-/* ***********************
-* Express Error Handler
-* Place after all other middleware
-*************************/
-app.use(async (err, req, res, next) => {
-  let nav = await utilities.getNav()
-  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
-  if(err.status == 404){ message = err.message} else {message = 'Oh no! There was a crash. Maybe try a different route?'}
-  res.render("errors/error", {
-    title: err.status || 'Server Error',
-    message,
-    nav
-  })
-})
 
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
