@@ -1,14 +1,7 @@
-const express = require("express");
-const router = new express.Router();
-const invController = require("../controllers/invController"); // Ensure the path is correct
+const express = require('express');
+const router = express.Router();
+const { yourHandlerFunction } = require('./pathToYourHandler');
 
-// Route to build inventory by classification view
-// Check if invController.buildByClassificationId is defined
-router.get("/type/:classificationId", invController.buildByClassificationId);
+router.get('/yourRoute', yourHandlerFunction); // Ensure this function is defined and imported correctly.
 
-// Route to get inventory data
-router.get('/inventory', (req, res) => {
-    res.send('Inventory data');
-});
-
-module.exports = router; // Ensure you export the router
+module.exports = router;
