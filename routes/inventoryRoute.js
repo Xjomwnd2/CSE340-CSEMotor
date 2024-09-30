@@ -10,5 +10,3 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get('/inventory', (req, res) => {
     res.send('Inventory data');
 });
-
-module.exports = router;
