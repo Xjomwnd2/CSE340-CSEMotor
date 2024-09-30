@@ -81,7 +81,11 @@ app.use((err, req, res, next) => {
   res.status(500).render('errors/error', { title: 'Something Went Wrong', message: err.message });
 });
 
-
+// Last route
+// File Not Found Route - must be last route in list
+app.use(async (req, res, next) => {
+  next({status: 404, message: 'Sorry, we appear to have lost that page.'})
+})
 
 /* ***********************
  * Log statement to confirm server operation
