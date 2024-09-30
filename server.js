@@ -14,7 +14,7 @@ const app = express()
 // Route and controller imports
 const static = require("./routes/static")
 const baseController = require("./controllers/baseController")
-const inventoryRoute = require("./routes/inventoryRoute") // Added require statement for inventoryRoute
+const inventoryRoute = require("./routes/inventoryRoute"); // Added require statement for inventoryRoute
 const utilities = require('./utilities/index'); // Utilities functions
 
 
