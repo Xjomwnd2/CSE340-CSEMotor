@@ -1,11 +1,14 @@
-// Needed Resources // inventoryRoute.js
 const express = require("express");
 const router = new express.Router();
-const invController = require("../controllers/invController"); // Check the path is correct
+const invController = require("../controllers/invController"); // Ensure the path is correct
+
 // Route to build inventory by classification view
+// Check if invController.buildByClassificationId is defined
 router.get("/type/:classificationId", invController.buildByClassificationId);
-// Ensure that this route has a proper callback function
+
+// Route to get inventory data
 router.get('/inventory', (req, res) => {
     res.send('Inventory data');
 });
+
 module.exports = router;
