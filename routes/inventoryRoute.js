@@ -1,5 +1,4 @@
-// Needed Resources 
-// inventoryRoute.js
+// Needed Resources // inventoryRoute.js
 const express = require("express");
 const router = new express.Router();
 const invController = require("../controllers/invController"); // Check the path is correct
