@@ -67,6 +67,21 @@ app.use(async (err, req, res, next) => {
   }
 })
 
+// FOR error.js in view folder
+// Other route handlers and middleware go above
+
+// Catch-all 404 handler for any routes that don't match
+app.use((req, res, next) => {
+  res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
+});
+
+// Error-handling middleware for all other errors
+app.use((err, req, res, next) => {
+  console.error(err.stack); // Log error stack trace to the console (for debugging)
+  res.status(500).render('errors/error', { title: 'Something Went Wrong', message: err.message });
+});
+
+
 
 /* ***********************
  * Log statement to confirm server operation
