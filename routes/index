@@ -1,3 +1,4 @@
 // Index route
 app.get("/", baseController.buildHome)
-utilities.handleErrors(baseController.buildHome)
+
+app.get("/", utilities.handleErrors(baseController.buildHome));
