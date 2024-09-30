@@ -1,7 +1,7 @@
 const invModel = require("../models/inventory-model");
 const Util = {};
 
-console.log(inventoryRoute); // Check if it's defined
+console.log(); // Check if it's defined
 
 /* ************************
  * Constructs the nav HTML unordered list
