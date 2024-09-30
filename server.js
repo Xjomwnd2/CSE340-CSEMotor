@@ -1,79 +1,62 @@
-/* ******************************************
- * This server.js file is the primary file of the 
- * application. It is used to control the project.
- *******************************************/
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const utilities = require("./utilities"); // Assuming you have a utilities module
+const winston = require("winston");
 
-/* ***********************
- * Require Statements
- *************************/
-const express = require("express")
-const expressLayouts = require("express-ejs-layouts")
-const env = require("dotenv").config()
-const app = express()
+const logger = winston.createLogger({
+  level: 'error',
+  format: winston.format.combine(
+    winston.format.timestamp(),
+    winston.format.json()
+  ),
+  transports: [
+    new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
+    new winston.transports.Console()
+  ]
+});
 
-// Route and controller imports
-const static = require("./routes/static")
-const inventoryRoute = require("./routes/inventoryRoute"); // Added require statement for inventoryRoute
-const utilities = require('./utilities/index'); // Utilities functions
+app.set("view engine", "ejs");
+app.set("layout", "./layouts/layout");
 
-/* ***********************
- * View Engine and Templates
- *************************/
-app.set("view engine", "ejs")
-app.use(expressLayouts)
-app.set("layout", "./layouts/layout") // Not at views root
+// Static files
+app.use(express.static("public"));
 
-/* ***********************
- * Routes
- *************************/
-app.use(static)
+// Routes here...
 
-// Index route
-app.get("/", (req, res) => {
-  res.render("index", { title: "Home" })
-})
+// Catch-all route for 404 errors
+app.use((req, res, next) => {
+  res.status(404).render('errors/error', { 
+    title: 'Page Not Found', 
+    message: 'Sorry, the page you are looking for does not exist!' 
+  });
+});
 
-// Inventory routes
-app.use("/inv", inventoryRoute) // Now properly linked
-
-/* ***********************
- * Local Server Information
- * Values from .env (environment) file
- *************************/
-const port = process.env.PORT || 3000
-const host = process.env.HOST || 'localhost'
-
-/* ***********************
- * Express Error Handler
- * Place after all other middleware
- *************************/
+// Error handling middleware
 app.use(async (err, req, res, next) => {
   try {
-    let nav = await utilities.getNav() // Ensure getNav is properly defined and exported in utilities/index.js
-    console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+    let nav = await utilities.getNav();
+    logger.error(`Error at: "${req.originalUrl}": ${err.message}`);
+    
+    const message = err.status === 404 
+      ? err.message 
+      : 'Oh no! There was a crash. Maybe try a different route?';
+
     res.status(err.status || 500).render("errors/error", {
       title: err.status || 'Server Error',
-      message: err.message,
-      nav
-    })
+      message,
+      nav,
+    });
   } catch (error) {
-    console.error("Error rendering the error page:", error)
-    res.status(500).send("An unexpected error occurred.")
+    logger.error("Error rendering the error page:", error);
+    res.status(500).send("An unexpected error occurred.");
   }
-})
-
-// Catch-all 404 handler
-app.use((req, res, next) => {
-  res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
 });
 
-// Error-handling middleware for other errors
-app.use((err, req, res, next) => {
-  console.error(err.stack); // Log error stack trace
-  res.status(500).render('errors/error', { title: 'Something Went Wrong', message: err.message });
-});
+// Environment variables with default fallback
+const port = process.env.PORT || 3000;
+const host = process.env.HOST || 'localhost';
 
-// Start the server
-app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`)
-})
+app.listen(port, host, () => {
+  console.log(`Server running at http://${host}:${port}`);
+});
