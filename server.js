@@ -16,7 +16,7 @@ const inventoryRoute = require("./routes/inventoryRoute") // Added require state
 const utilities = require('./utilities/index'); // Utilities functions
 
 
-app.use('/api', inventoryRoute);
+app.use('/api', inventoryRoute)
 /* ***********************
  * View Engine and Templates
  *************************/
