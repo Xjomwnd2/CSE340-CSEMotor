@@ -6,7 +6,7 @@ const add = (num1, num2) => {
     return sum
 }
 
-const numberOne = 5
+const numberOne = 5 
 const numberTwo = 25
 
 const result = add(numberOne, numberTwo)
