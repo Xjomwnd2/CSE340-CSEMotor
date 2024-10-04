@@ -8,7 +8,7 @@ const inventoryController = require('../controllers/inventoryController');
 router.get('/', inventoryController.getAllItems);
 
 // Route to get a single inventory item by ID
-router.get('/:id', inventoryController.getItemById);
+router.get('/:type', inventoryController.getItemById);
 
 // Route to add a new inventory item
 router.post('/', inventoryController.addItem);
