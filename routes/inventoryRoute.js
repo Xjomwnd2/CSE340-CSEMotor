@@ -1,23 +1,11 @@
-// routes/inventoryRoute.js
-
-const express = require('express');
-const router = express.Router();
-const inventoryController = require('../controllers/inventoryController');
-
-// Route to get all inventory items
-router.get('/', inventoryController.getAllItems);
-
-// Route to get a single inventory item by ID
-router.get('/:type', inventoryController.getItemById);
-
-// Route to add a new inventory item
-router.post('/', inventoryController.addItem);
-
-// Route to update an inventory item by ID
-router.put('/:id', inventoryController.updateItem);
-
-// Route to delete an inventory item by ID
-router.delete('/:id', inventoryController.deleteItem);
-
+// inventoryRoute.js
+const express = require("express");
+const router = new express.Router();
+const invController = require("../controllers/invController");
+// Route to build inventory by classification view
+router.get("/type/:classificationId", invController.buildByClassificationId);
+// Simple test route (working fine)
+router.get('/inventory', (req, res) => {
+    res.send('Inventory data');
+});
 module.exports = router;
-
