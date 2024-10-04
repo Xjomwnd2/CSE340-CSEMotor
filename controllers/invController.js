@@ -1,6 +1,5 @@
 const invModel = require("../models/inventory-model")
 const utilities = require("../utilities/")
-
 const invCont = {}
 
 /* ***************************
@@ -17,6 +16,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
     nav,
     grid,
   })
-  
-  module.exports = invCont
 }
+
+// Move module.exports outside of the function
+module.exports = invCont
