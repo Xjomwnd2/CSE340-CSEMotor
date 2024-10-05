@@ -31,6 +31,39 @@ app.set("layout", "./layouts/layout"); // Not at views root
  *************************/
 app.use(static);
 
+/***********************************
+* Home, Custom, Sedan, SUV, Truck routes
+********************************* */
+// All views routes
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
+
+// Serve static files (like CSS, JS, images)
+app.use(express.static('public'));
+
+// Define routes for each page
+app.get('/custom', (req, res) => {
+    res.render('custom'); // Render custom.ejs
+});
+
+app.get('/sedan', (req, res) => {
+    res.render('sedan'); // Render sedan.ejs
+});
+
+app.get('/suv', (req, res) => {
+    res.render('suv'); // Render suv.ejs
+});
+
+app.get('/truck', (req, res) => {
+    res.render('truck'); // Render truck.ejs
+});
+
+// Home page route
+app.get('/', (req, res) => {
+    res.render('index'); // Render index.ejs
+});
+
+//****************************** */
 // Index route
 app.get("/", function(req, res) {
   res.render("index", { title: "Home" });
