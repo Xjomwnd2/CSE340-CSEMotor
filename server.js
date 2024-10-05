@@ -2,7 +2,6 @@
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
-
 /* ***********************
  * Require Statements
  *************************/
@@ -10,15 +9,14 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
 const app = express();
-
 // Route and controller imports
 const static = require("./routes/static");
 const baseController = require("./controllers/baseController");
-const inventoryRoute = require("./routes/inventoryRoute"); // Added require statement for inventoryRoute
+const inventoryRoute = require("./routes/inventoryRoute") // Added require statement for inventoryRoute
 const utilities = require('./utilities/index'); // Utilities functions
 
-app.use('/api', inventoryRoute);
 
+app.use('/api', inventoryRoute);
 /* ***********************
  * View Engine and Templates
  *************************/
@@ -31,42 +29,26 @@ app.set("layout", "./layouts/layout"); // Not at views root
  *************************/
 app.use(static);
 
-/***********************************
-* Home, Custom, Sedan, SUV, Truck routes
-********************************* */
-// All views routes
-// Set EJS as the templating engine
-app.set('view engine', 'ejs');
-
-// Serve static files (like CSS, JS, images)
-app.use(express.static('public'));
-
-// Define routes for each page
-app.get('/custom', (req, res) => {
-    res.render('custom'); // Render custom.ejs
-});
-
-app.get('/sedan', (req, res) => {
-    res.render('sedan'); // Render sedan.ejs
-});
-
-app.get('/suv', (req, res) => {
-    res.render('suv'); // Render suv.ejs
-});
-
-app.get('/truck', (req, res) => {
-    res.render('truck'); // Render truck.ejs
-});
-
-// Home page route
-app.get('/', (req, res) => {
-    res.render('index'); // Render index.ejs
-});
-
-//****************************** */
 // Index route
 app.get("/", function(req, res) {
   res.render("index", { title: "Home" });
+});
+
+// Additional vehicle routes
+app.get("/custom", function(req, res) {
+  res.render("custom", { title: "Custom Vehicles" });
+});
+
+app.get("/sedan", function(req, res) {
+  res.render("sedan", { title: "Sedan Vehicles" });
+});
+
+app.get("/suv", function(req, res) {
+  res.render("suv", { title: "SUV Vehicles" });
+});
+
+app.get("/truck", function(req, res) {
+  res.render("truck", { title: "Truck Vehicles" });
 });
 
 // Inventory routes
@@ -112,12 +94,12 @@ app.use((err, req, res, next) => {
 // Last route
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
-  next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
+  next({status: 404, message: 'Sorry, we appear to have lost that page.'});
 });
 
 /* ***********************
  * Log statement to confirm server operation
  *************************/
 app.listen(port, () => {
-  console.log(`App listening on ${host}:${port}`);
+  console.log(`app listening on ${host}:${port}`);
 });
