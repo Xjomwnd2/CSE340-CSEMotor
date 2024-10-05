@@ -10,6 +10,19 @@
             <%- include('../partials/header') %>
             <%- include('../partials/navigation') %>
             <main>
+                <h1>Select a vehicle type</h1>
+                <form>
+                    <label for="vehicle-type">Choose a vehicle:</label>
+                    <select id="vehicle-type" name="vehicle-type">
+                        <option value="custom">Custom</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="suv">SUV</option>
+                        <option value="truck">Truck</option>
+                    </select>
+                    <button type="submit">Submit</button>
+                </form>
+                <%- body %>
+
                 <%- body %>
             </main>
             <%- include('../partials/footer') %>
