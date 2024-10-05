@@ -44,8 +44,8 @@ app.get('/', (req, res) => {
       { name: 'SUV', link: '/vehicles/suv' },
       { name: 'Truck', link: '/vehicles/truck' }
   ];
-  
-  // Render the index view, ensuring vehicles is passed to the layout
+
+  // Render the 'index' view and pass the vehicles array to the layout
   res.render('index', { vehicles: vehicleTypes });
 });
 
