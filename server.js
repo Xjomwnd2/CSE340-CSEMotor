@@ -15,7 +15,6 @@ const baseController = require("./controllers/baseController");
 const inventoryRoute = require("./routes/inventoryRoute") // Added require statement for inventoryRoute
 const utilities = require('./utilities/index'); // Utilities functions
 
-
 app.use('/api', inventoryRoute);
 /* ***********************
  * View Engine and Templates
