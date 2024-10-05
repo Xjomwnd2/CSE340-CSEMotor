@@ -7,13 +7,10 @@
             <%- include('../partials/navigation') %>
             <main>
 
-                <nav>
-                    <ul>
                         <% vehicles.forEach(function(vehicle) { %>
-                            <li><a href="<%= vehicle.link %>"><%= vehicle.name %></a></li>
+                            <li><a href="<%= vehicle.link %>"><%= vehicle.name %>
                         <% }); %>
-                    </ul>
-                </nav>
+            
 
                 <%- body %>
             </main>
