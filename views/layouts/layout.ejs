@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('../partials/head') %>
-
-    <!DOCTYPE html>
-<html lang="en">
-    <%- include('../partials/head') %>
     <body>
         <div id="wrapper">
             <%- include('../partials/header') %>
             <%- include('../partials/navigation') %>
+
             <main>
+                <nav>
+                    <ul>
+                        <% vehicles.forEach(function(vehicle) { %>
+                            <li><a href="<%= vehicle.link %>"><%= vehicle.name %></a></li>
+                        <% }); %>
+                    </ul>
+                </nav>
+
                 <%- body %>
             </main>
+
             <%- include('../partials/footer') %>
         </div>
     </body>
-    </html>
+</html>
+
