@@ -13,42 +13,37 @@ const app = express();
 
 // Route and controller imports
 const static = require("./routes/static");
-const baseController = require("./controllers/baseController");
-const inventoryRoute = require("./routes/inventoryRoute"); // Added require statement for inventoryRoute
-const utilities = require('./utilities/index'); // Utilities functions
+const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
+const utilities = require('./utilities/index'); // Ensure this is valid
 
-// Middleware setup
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Use routes
 app.use('/api', inventoryRoute);
-app.use(static); // Ensure static routes are properly linked
 
 /* ***********************
  * View Engine and Templates
  *************************/
 app.set("view engine", "ejs");
 app.use(expressLayouts);
-app.set("layout", "./layouts/layout"); // Not at views root
+app.set("layout", "./layouts/layout");
 
 /* ***********************
  * Routes
  *************************/
+app.use(static);
+
 // Index route
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
 
 // Inventory routes
-app.use("/inv", inventoryRoute); // Now properly linked
+app.use("/inv", inventoryRoute);
 
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
  *************************/
-const port = process.env.PORT || 5500; // Default to 5500 if not set
-const host = process.env.HOST || 'localhost'; // Default to 'localhost' if not set
+const port = process.env.PORT;
+const host = process.env.HOST;
 
 /* ***********************
  * Express Error Handler
@@ -56,7 +51,7 @@ const host = process.env.HOST || 'localhost'; // Default to 'localhost' if not s
  *************************/
 app.use(async (err, req, res, next) => {
   try {
-    let nav = await utilities.getNav(); // Ensure getNav is properly defined and exported in utilities/index.js
+    let nav = await utilities.getNav(); // Ensure this function exists
     console.error(`Error at: "${req.originalUrl}": ${err.message}`);
     res.status(err.status || 500).render("errors/error", {
       title: err.status || 'Server Error',
@@ -70,12 +65,12 @@ app.use(async (err, req, res, next) => {
 });
 
 // Catch-all 404 handler for any routes that don't match
-app.use((req, res) => {
+app.use((req, res, next) => {
   res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
 });
 
-// Last route for handling file not found errors
-app.use((req, res, next) => {
+// Last route
+app.use(async (req, res, next) => {
   next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
 });
 
