@@ -5,21 +5,22 @@
         <div id="wrapper">
             <%- include('../partials/header') %>
             <%- include('../partials/navigation') %>
-
-            <nav>
-                <ul>
-                    <% if (vehicles && vehicles.length) { %>
-                        <% vehicles.forEach(function(vehicle) { %>
-                            <li><a href="<%= vehicle.link %>"><%= vehicle.name %></a></li>
-                        <% }); %>
-                    <% } else { %>
-                        <li>No vehicles available</li>
-                    <% } %>
-                </ul>
-            </nav>
-
             <main>
                 <%- body %>
+
+                <nav>
+                    <ul>
+                        <% if (vehicles && vehicles.length) { %>
+                            <% vehicles.forEach(function(vehicle) { %>
+                                <li><a href="<%= vehicle.link %>"><%= vehicle.name %></a></li>
+                            <% }); %>
+                        <% } else { %>
+                            <li>No vehicles available</li>
+                        <% } %>
+                    </ul>
+                </nav>
+    
+
             </main>
             <%- include('../partials/footer') %>
         </div>
