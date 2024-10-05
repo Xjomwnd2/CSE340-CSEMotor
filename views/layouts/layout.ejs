@@ -6,15 +6,6 @@
             <%- include('../partials/header') %>
             <%- include('../partials/navigation') %>
             <!-- Navigation -->
-    <nav>
-        <ul>
-            <% if (vehicles && vehicles.length) { %>
-                <% vehicles.forEach(function(vehicle) { %>
-                    <li><a href="<%= vehicle.link %>"><%= vehicle.name %></a></li>
-                <% }); %>
-            <% } %>
-        </ul>
-    </nav>
             <main>
                 <%- body %>
             </main>
