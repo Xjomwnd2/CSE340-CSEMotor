@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
 
 // Vehicles routes
 app.get("/", (req, res) => {
-  res.render("custom", { title: "Home" });
+  res.render("index", { title: "Home" });
 });
 
 app.get("/", (req, res) => {
