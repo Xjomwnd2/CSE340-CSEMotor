@@ -1,3 +1,4 @@
+SERVER.JS
 /* ******************************************
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
@@ -8,13 +9,12 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
-
+const app = express();
 // Route and controller imports
 const static = require("./routes/static");
 const baseController = require("./controllers/baseController");
-const inventoryRoute = require("./routes/inventoryRoute") // Added require statement for inventoryRoute
+const inventoryRoute = require("./routes/inventoryRoute"); // Added require statement for inventoryRoute
 const utilities = require('./utilities/index'); // Utilities functions
-
 app.use('/api', inventoryRoute);
 /* ***********************
  * View Engine and Templates
@@ -22,44 +22,26 @@ app.use('/api', inventoryRoute);
 app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "./layouts/layout"); // Not at views root
-
 /* ***********************
  * Routes
  *************************/
 app.use(static);
-
+/***********************************
+* Home, Custom, Sedan, SUV, Truck routes
+********************************* */
+//****************************** */
 // Index route
 app.get("/", function(req, res) {
   res.render("index", { title: "Home" });
 });
-
-// Additional vehicle routes
-app.get("/custom", function(req, res) {
-  res.render("custom", { title: "Custom Vehicles" });
-});
-
-app.get("/sedan", function(req, res) {
-  res.render("sedan", { title: "Sedan Vehicles" });
-});
-
-app.get("/suv", function(req, res) {
-  res.render("suv", { title: "SUV Vehicles" });
-});
-
-app.get("/truck", function(req, res) {
-  res.render("truck", { title: "Truck Vehicles" });
-});
-
 // Inventory routes
 app.use("/inv", inventoryRoute); // Now properly linked
-
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
  *************************/
 const port = process.env.PORT;
 const host = process.env.HOST;
-
 /* ***********************
  * Express Error Handler
  * Place after all other middleware
@@ -78,27 +60,23 @@ app.use(async (err, req, res, next) => {
     res.status(500).send("An unexpected error occurred.");
   }
 });
-
 // Catch-all 404 handler for any routes that don't match
 app.use((req, res, next) => {
   res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
 });
-
 // Error-handling middleware for all other errors
 app.use((err, req, res, next) => {
   console.error(err.stack); // Log error stack trace to the console (for debugging)
   res.status(500).render('errors/error', { title: 'Something Went Wrong', message: err.message });
 });
-
 // Last route
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
-  next({status: 404, message: 'Sorry, we appear to have lost that page.'});
+  next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
 });
-
 /* ***********************
  * Log statement to confirm server operation
  *************************/
 app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`);
+  console.log(`App listening on ${host}:${port}`);
 });
