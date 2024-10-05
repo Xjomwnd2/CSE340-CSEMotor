@@ -8,7 +8,7 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
-const app = express();
+
 // Route and controller imports
 const static = require("./routes/static");
 const baseController = require("./controllers/baseController");
