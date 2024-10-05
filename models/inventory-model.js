@@ -3,10 +3,9 @@ const pool = require("../database/");
 /* ***************************
  *  Get all classification data
  * ************************** */
-async function getClassifications(){
-  return await pool.query("SELECT * FROM public.classification ORDER BY classification_name");
-};
-
+async function getClassifications() {
+  return pool.query("SELECT * FROM public.classification ORDER BY classification_name");
+}
 
 /* ***************************
  *  Get all inventory items and classification_name by classification_id
@@ -19,11 +18,12 @@ async function getInventoryByClassificationId(classification_id) {
       ON i.classification_id = c.classification_id 
       WHERE i.classification_id = $1`,
       [classification_id]
-    )
-    return data.rows
+    );
+    return data.rows;
   } catch (error) {
-    console.error("getclassificationsbyid error " + error);
+    console.error("getInventoryByClassificationId error: " + error);
+    return []; // Return an empty array or appropriate error response
   }
-};
+}
 
-module.exports = {getClassifications, getInventoryByClassificationId};
+module.exports = { getClassifications, getInventoryByClassificationId };
