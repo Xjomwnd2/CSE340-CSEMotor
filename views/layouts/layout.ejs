@@ -6,6 +6,19 @@
             <%- include('../partials/header') %>
             <%- include('../partials/navigation') %>
             <main>
+                <section>
+                    <nav>
+                        <ul>
+                            <% if (vehicles && vehicles.length) { %>
+                                <% vehicles.forEach(function(vehicle) { %>
+                                    <li><a href="<%= vehicle.link %>"><%= vehicle.name %></a></li>
+                                <% }); %>
+                            <% } else { %>
+                                <li>No vehicles available</li>
+                            <% } %>
+                        </ul>
+                    </nav>
+                </section>
                 <%- body %>
             </main>
             <%- include('../partials/footer') %>
