@@ -30,9 +30,27 @@ app.set("layout", "./layouts/layout");
  *************************/
 app.use(static);
 
+
 // Index route
 app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
+});
+
+// Vehicles routes
+app.get("/", (req, res) => {
+  res.render("custom", { title: "Home" });
+});
+
+app.get("/", (req, res) => {
+  res.render("sedan", { title: "Home" });
+});
+
+app.get("/", (req, res) => {
+  res.render("SUV", { title: "Home" });
+});
+
+app.get("/", (req, res) => {
+  res.render("Truck", { title: "Home" });
 });
 
 // Inventory routes
