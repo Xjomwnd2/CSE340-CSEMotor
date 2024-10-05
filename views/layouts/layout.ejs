@@ -7,9 +7,18 @@
             <%- include('../partials/navigation') %>
             <main>
 
-                        <% vehicles.forEach(function(vehicle) { %>
-                            <li><a href="<%= vehicle.link %>"><%= vehicle.name %>
-                        <% }); %>
+                <nav>
+                    <ul>
+                        <% if (vehicles && vehicles.length) { %>
+                            <% vehicles.forEach(function(vehicle) { %>
+                                <li><a href="<%= vehicle.link %>"><%= vehicle.name %></a></li>
+                            <% }); %>
+                        <% } else { %>
+                            <li>No vehicles available</li>
+                        <% } %>
+                    </ul>
+                </nav>
+                
             
 
                 <%- body %>
