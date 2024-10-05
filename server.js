@@ -38,19 +38,19 @@ app.get("/", (req, res) => {
 
 // Vehicles routes
 app.get("/", (req, res) => {
-  res.render("index", { title: "Home" });
+  res.render("custom", { title: "Custom" });
 });
 
 app.get("/", (req, res) => {
-  res.render("sedan", { title: "Home" });
+  res.render("sedan", { title: "Sedan" });
 });
 
 app.get("/", (req, res) => {
-  res.render("SUV", { title: "Home" });
+  res.render("suv", { title: "SUV" });
 });
 
 app.get("/", (req, res) => {
-  res.render("Truck", { title: "Home" });
+  res.render("truck", { title: "Truck" });
 });
 
 // Inventory routes
