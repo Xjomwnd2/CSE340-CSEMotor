@@ -37,15 +37,15 @@ app.get("/", (req, res) => {
 });
 
 // Vehicles routes
-// Example vehicle types you want to include in the navbar
-const vehicleTypes = [
-  { name: 'Custom', link: '/vehicles/custom' },
-  { name: 'Sedan', link: '/vehicles/sedan' },
-  { name: 'SUV', link: '/vehicles/suv' },
-  { name: 'Truck', link: '/vehicles/truck' }
-];
-
 app.get('/', (req, res) => {
+  const vehicleTypes = [
+      { name: 'Custom', link: '/vehicles/custom' },
+      { name: 'Sedan', link: '/vehicles/sedan' },
+      { name: 'SUV', link: '/vehicles/suv' },
+      { name: 'Truck', link: '/vehicles/truck' }
+  ];
+  
+  // Render the index view, ensuring vehicles is passed to the layout
   res.render('index', { vehicles: vehicleTypes });
 });
 
