@@ -6,6 +6,12 @@
     <title>Sedan Vehicles - CSE Motors</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
+<!-- Content Heading -->
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
 <body>
     <header>
         <h1>Sedan Vehicles</h1>

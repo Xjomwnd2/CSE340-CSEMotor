@@ -1,4 +1,10 @@
 <!-- Welcome Section -->
+   <!-- Content Heading -->
+   <% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
 <section>
     <h1>Welcome to CSE Motors</h1>
     <div class="delorean-container">
