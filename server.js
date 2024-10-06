@@ -40,7 +40,7 @@ app.get('/truck', (req, res) => {
   if (!title) {
       res.redirect('/');
   } else {
-      res.render('truck', { title: 'Truck Vehicles' });
+      res.render('truck', { title: 'Truck' });
   }
 });
 
