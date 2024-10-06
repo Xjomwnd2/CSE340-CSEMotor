@@ -36,12 +36,8 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
 
-app.get('/truck', (req, res) => {
-  if (!title) {
-      res.redirect('/');
-  } else {
-      res.render('truck', { title: 'Truck' });
-  }
+app.get("/", (req, res) => {
+  res.render('truck', { title: 'Truck' });
 });
 
 
