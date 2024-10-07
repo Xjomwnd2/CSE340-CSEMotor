@@ -25,7 +25,6 @@ app.use('/motors', motorsRoutes);
 app.get('/', (req, res) => {
  res.send('Welcome to Motors Homepage');
 });
-
 //////////
 // Route and controller imports
 const static = require("./routes/static");
@@ -45,7 +44,7 @@ app.set("layout", "./layouts/layout");
  * Routes
  *************************/
 app.use(static);
-/* ***************** 
+/* ***************** */
 
 // Index route
 app.get("/", (req, res) => {
