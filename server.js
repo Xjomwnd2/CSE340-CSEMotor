@@ -18,7 +18,6 @@ const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is val
 const path = require('path');
 const utilities = require('./utilities/index'); // Ensure this is valid
 const motorsRoutes = require('./routes/motorsRoutes');
-const motorsRoutes = require('./routes/motors');
 const sedanRoutes = require('./routes/sedan'); 
 const suvRoutes = require('./routes/suv');
 app.use('/api', inventoryRoute);
