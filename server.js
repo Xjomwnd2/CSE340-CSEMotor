@@ -9,17 +9,17 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
-const path = require('path');
-const motorsRoutes = require('./routes/motors');
-const sedanRoutes = require('./routes/sedan'); 
 const app = express();
 
 
 // Route and controller imports
 const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
+const path = require('path');
 const utilities = require('./utilities/index'); // Ensure this is valid
-
+const motorsRoutes = require('./routes/motorsRoutes');
+const motorsRoutes = require('./routes/motors');
+const sedanRoutes = require('./routes/sedan'); 
 app.use('/api', inventoryRoute);
 
 /* ***********************
@@ -39,7 +39,10 @@ app.use(static);
 app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
-// CUSTOME
+// CUSTOME/////////////////
+// Set EJS as the templating engine
+// Import the motors route (Ensure this path is correct based on your file structure) // Adjust path as needed
+
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -50,9 +53,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Use the motors route
 app.use('/motors', motorsRoutes);
 
-// Home route (renders the 'index.ejs' file)
+// Basic homepage route (Optional)
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Motors Home' });
+  res.render("index", { title: "Home" });
 });
 ////////////
 // sedan////////////////
