@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUV Vehicles - CSE Motors</title>
-    <link rel="stylesheet" href="/styles.css">
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>SUV Details</title>
+ <link rel="stylesheet" href="/css/styles.css"> <!-- Link to external CSS if needed -->
 </head>
-<!-- Content Heading -->
-<% if (title) { %>
-    <h1><%= title %></h1>
-    <% } else {
-      res.redirect('/')
-    } %>
 <body>
-    <header>
-        <h1>SUV Vehicles</h1>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/custom">Custom</a></li>
-                <li><a href="/sedan">Sedan</a></li>
-                <li><a href="/suv">SUV</a></li>
-                <li><a href="/truck">Truck</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h2>Discover Our SUVs</h2>
-        <p>Find the perfect SUV for family adventures.</p>
-    </main>
-    <footer>
-        <p>&copy; <%= new Date().getFullYear() %>, CSE Motors</p>
-    </footer>
+ <header>
+ <h1>Details of <%= suv.model %></h1>
+ </header>
+ <main>
+ <section>
+ <h2>Specifications</h2>
+ <ul>
+ <li><strong>Make:</strong> <%= suv.make %></li>
+ <li><strong>Model:</strong> <%= suv.model %></li>
+ <li><strong>Year:</strong> <%= suv.year %></li>
+ <li><strong>Engine:</strong> <%= suv.engine %></li>
+ <li><strong>Price:</strong> $<%= suv.price.toLocaleString() %></li>
+ <li><strong>Fuel Type:</strong> <%= suv.fuelType %></li>
+ </ul>
+ </section>
+ <section>
+ <h2>Description</h2>
+ <p><%= suv.description %></p>
+ </section>
+ </main>
+ <footer>
+ <p>&copy; 2024 SUV Dealership</p>
+ </footer>
 </body>
 </html>
