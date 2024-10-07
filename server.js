@@ -13,19 +13,7 @@ const path = require('path');
 const motorsRoutes = require('./routes/motors'); 
 const app = express();
 
-// Import the motors route
-// Set EJS as the templating engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-// Serve static files from the 'public' folder
-app.use(express.static(path.join(__dirname, 'public')));
-// Use the motors route
-app.use('/motors', motorsRoutes);
-// Basic homepage route (Optional)
-app.get('/', (req, res) => {
- res.send('Welcome to Motors Homepage');
-});
-//////////
+
 // Route and controller imports
 const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
@@ -55,20 +43,7 @@ app.get("/", (req, res) => {
   res.render('truck', { title: 'Truck' });
 });
 
-/* ***************To Remove ************************* */
-// Vehicles routes
-app.get('/', (req, res) => {
-  const vehicleTypes = [
-      { name: 'Custom', link: '/vehicles/custom' },
-      { name: 'Sedan', link: '/vehicles/sedan' },
-      { name: 'SUV', link: '/vehicles/suv' },
-      { name: 'Truck', link: '/vehicles/truck' }
-  ];
 
-  // Render the 'index' view and pass the vehicles array to the layout
-  res.render('index', { vehicles: vehicleTypes });
-});
-/* *********************************** */
 // Inventory routes
 app.use("/inv", inventoryRoute);
 
