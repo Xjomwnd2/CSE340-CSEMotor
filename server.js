@@ -39,10 +39,6 @@ app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
 
-app.get("/", (req, res) => {
-  res.render('truck', { title: 'Truck' });
-});
-
 
 // Inventory routes
 app.use("/inv", inventoryRoute);
