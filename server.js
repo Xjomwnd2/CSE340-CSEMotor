@@ -20,6 +20,7 @@ const utilities = require('./utilities/index'); // Ensure this is valid
 const motorsRoutes = require('./routes/motorsRoutes');
 const motorsRoutes = require('./routes/motors');
 const sedanRoutes = require('./routes/sedan'); 
+const suvRoutes = require('./routes/suv');
 app.use('/api', inventoryRoute);
 
 /* ***********************
@@ -66,6 +67,14 @@ app.use('/', sedanRoutes); // Use the sedan routes
 ////////////////////////
 // Inventory routes
 app.use("/inv", inventoryRoute);
+
+/////////////SUV////////////////////
+// Import the SUV routes
+app.set('view engine', 'ejs');
+app.set('views', './views'); // Set the views directory
+app.use('/', suvRoutes); // Use the SUV routes
+
+////////////////////////////////////
 
 /* ***********************
  * Local Server Information
