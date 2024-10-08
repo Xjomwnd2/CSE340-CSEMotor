@@ -1,9 +1,9 @@
 <nav>
   <ul>
-    <li>Home</li>
-    <li>Custom</li>
-    <li>Sedan</li>
-    <li>SUV</li>
-    <li>Truck</li>
+    <li><a href="/" title="Home page" class="<%= page === 'home' ? 'active' : '' %>">Home</a></li>
+    <li><a href="/custom" title="View Custom Vehicles" class="<%= page === 'custom' ? 'active' : '' %>">Custom</a></li>
+    <li><a href="/sedan" title="View Sedans" class="<%= page === 'sedan' ? 'active' : '' %>">Sedan</a></li>
+    <li><a href="/suv" title="View SUVs" class="<%= page === 'suv' ? 'active' : '' %>">SUV</a></li>
+    <li><a href="/truck" title="View Trucks" class="<%= page === 'truck' ? 'active' : '' %>">Truck</a></li>
   </ul>
 </nav>
