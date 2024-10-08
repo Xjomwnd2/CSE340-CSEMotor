@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title><%= pageTitle %></title>
- <link rel="stylesheet" href="/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pageTitle %></title>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
- <!-- Header Section -->
- <header>
- <nav>
- <ul>
- <li><a href="/">Home</a></li>
- <li><a href="/motors">Motors</a></li>
- <li><a href="/about">About Us</a></li>
- <li><a href="/contact">Contact</a></li>
- </ul>
- </nav>
- <h1><%= heading %></h1>
- </header>
- <!-- Main Content Section -->
- <main>
- <h2>Available Vehicles</h2>
- <div class="vehicle-list">
- <% if (vehicles && vehicles.length > 0) { %>
- <ul>
- <% vehicles.forEach(vehicle => { %>
- <li>
- <h3><%= vehicle.name %></h3>
- <p>Price: $<%= vehicle.price.toFixed(2) %></p>
- <p>Year: <%= vehicle.year %></p>
- <p>Description: <%= vehicle.description %></p>
- </li>
- <% }) %>
- </ul>
- <% } else { %>
- <p>No vehicles available at the moment. Please check back later!</p>
- <% } %>
- </div>
- </main>
- <!-- Footer Section -->
- <footer>
- <p>&copy; <%= new Date().getFullYear() %> Motors Company</p>
- </footer>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/motors">Motors</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- Using dynamic heading -->
+    <% if (heading) { %>
+      <h1><%= heading %></h1>
+    <% } else { %>
+      <h1>Welcome to Our Motors Page</h1>
+    <% } %>
+  </header>
+
+  <!-- Main Content Section -->
+  <main>
+    <h2>Available Vehicles</h2>
+    <div class="vehicle-list">
+      <!-- Dynamically check if there are vehicles available -->
+      <% if (vehicles && vehicles.length > 0) { %>
+        <ul>
+          <!-- Iterate over vehicles and display each one -->
+          <% vehicles.forEach(vehicle => { %>
+            <li>
+              <h3><%= vehicle.name %></h3>
+              <p>Price: $<%= vehicle.price.toFixed(2) %></p>
+              <p>Year: <%= vehicle.year %></p>
+              <p>Description: <%= vehicle.description %></p>
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <!-- If no vehicles are available -->
+        <p>No vehicles available at the moment. Please check back later!</p>
+      <% } %>
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; <%= new Date().getFullYear() %> Motors Company</p>
+  </footer>
+
+  <!-- Link to the custom.js file -->
+  <script src="/js/custom.js"></script>
 </body>
 </html>
