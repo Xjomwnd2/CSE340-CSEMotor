@@ -21,7 +21,21 @@ const motorsRoutes = require('./routes/motorsRoutes');
 const sedanRoutes = require('./routes/sedan'); 
 const suvRoutes = require('./routes/suv');
 app.use('/api', inventoryRoute);
+///////////////CUSTOM ROUTE/////////////
+app.get('/motors', (req, res) => {
+  const vehicles = [
+    { name: 'DMC Delorean', price: 40000, year: 1981, description: 'A classic 80s car with futuristic appeal.' },
+    { name: 'Tesla Model S', price: 85000, year: 2023, description: 'Electric luxury sedan with cutting-edge technology.' }
+  ];
 
+  res.render('custom', {
+    pageTitle: 'Our Motors',
+    heading: 'Explore Our Vehicle Collection',
+    vehicles: vehicles
+  });
+});
+
+/////////////
 /* ***********************
  * View Engine and Templates
  *************************/
