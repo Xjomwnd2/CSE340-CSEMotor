@@ -34,7 +34,9 @@ app.set("layout", "./layouts/layout");
  *************************/
 app.use(static);
 /* ***************** */
-
+///
+app.use(express.static(path.join(__dirname, 'public')));
+///
 // Index route
 app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
