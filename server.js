@@ -12,6 +12,8 @@ const env = require("dotenv").config();
 const app = express();
 const path = require('path');
 const baseController = require("./controllers/baseController");
+const staticRoutes = require('./routes/static');
+
 
 // Route and controller imports
 const static = require("./routes/static");
