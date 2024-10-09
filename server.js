@@ -32,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Home page route
 app.get('/', (req, res) => {
-  res.render('home'); // This will render views/home.ejs
+  res.render("home"); // This will render views/home.ejs
 });
 
 
