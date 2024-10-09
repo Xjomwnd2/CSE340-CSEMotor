@@ -23,7 +23,62 @@ const { buildNavigation } = require('./controllers/navController');
 app.use('/api', inventoryRoute);
 
 ///////////////Main Application Building Application/////////////
+// Set up the view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
+// Serve static files (CSS, JS, images)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Home page route
+app.get('/', async (req, res) => {
+    try {
+        const navItems = await buildNavigation();
+        res.render('home', { navItems });
+    } catch (error) {
+        res.status(500).send('Error loading the Home page');
+    }
+});
+
+// Custom page route
+app.get('/custom', async (req, res) => {
+    try {
+        const navItems = await buildNavigation();
+        res.render('custom', { navItems });
+    } catch (error) {
+        res.status(500).send('Error loading the Custom page');
+    }
+});
+
+// Sedan page route
+app.get('/sedan', async (req, res) => {
+    try {
+        const navItems = await buildNavigation();
+        res.render('sedan', { navItems });
+    } catch (error) {
+        res.status(500).send('Error loading the Sedan page');
+    }
+});
+
+// SUV page route
+app.get('/suv', async (req, res) => {
+    try {
+        const navItems = await buildNavigation();
+        res.render('suv', { navItems });
+    } catch (error) {
+        res.status(500).send('Error loading the SUV page');
+    }
+});
+
+// Trucks page route
+app.get('/trucks', async (req, res) => {
+    try {
+        const navItems = await buildNavigation();
+        res.render('trucks', { navItems });
+    } catch (error) {
+        res.status(500).send('Error loading the Trucks page');
+    }
+});
 
 /////////////
 /* ***********************
