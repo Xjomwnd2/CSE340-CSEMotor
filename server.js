@@ -15,26 +15,15 @@ const app = express();
 // Route and controller imports
 const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
-const path = require('path');
 const utilities = require('./utilities/index'); // Ensure this is valid
 const motorsRoutes = require('./routes/motorsRoutes');
 const sedanRoutes = require('./routes/sedan'); 
 const suvRoutes = require('./routes/suv');
 const { buildNavigation } = require('./controllers/navController');
 app.use('/api', inventoryRoute);
-///////////////CUSTOM ROUTE/////////////
-app.get('/motors', (req, res) => {
-  const vehicles = [
-    { name: 'DMC Delorean', price: 40000, year: 1981, description: 'A classic 80s car with futuristic appeal.' },
-    { name: 'Tesla Model S', price: 85000, year: 2023, description: 'Electric luxury sedan with cutting-edge technology.' }
-  ];
+const path = require('path');
+///////////////Main Application Building Application/////////////
 
-  res.render('custom', {
-    pageTitle: 'Our Motors',
-    heading: 'Explore Our Vehicle Collection',
-    vehicles: vehicles
-  });
-});
 
 /////////////
 /* ***********************
