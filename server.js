@@ -12,7 +12,6 @@ const app = express();
 const path = require('path');
 const baseController = require("./controllers/baseController");
 const staticRoutes = require('./routes/static');
-const staticRoutes = require('./anotherFolder/static');
 
 
 // Route and controller imports
