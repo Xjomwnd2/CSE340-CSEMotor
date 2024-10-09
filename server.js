@@ -21,7 +21,8 @@ const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is val
 const utilities = require('./utilities/index'); // Ensure this is valid
 app.use('/api', inventoryRoute);
 ///////////////Main Application Building Application/////////////
-
+// Mount static routes
+app.use('/static', staticRoutes);
 /////////////
 /* ***********************
  * View Engine and Templates
