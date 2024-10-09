@@ -31,14 +31,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Home page route
-app.get('/', async (req, res) => {
-    try {
-        const navItems = await buildNavigation();
-        res.render('home', { navItems });
-    } catch (error) {
-        res.status(500).send('Error loading the Home page');
-    }
+app.get('/', (req, res) => {
+  res.render('home'); // This will render views/home.ejs
 });
+
 
 // Custom page route
 app.get('/custom', async (req, res) => {
