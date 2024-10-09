@@ -31,18 +31,6 @@ app.use('/static', staticRoutes);
 // Serve static files from the 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Motors route
-const motorsRoutes = require('./routes/motors');
-app.use('/motors', motorsRoutes);
-
-// Sedan routes
-const sedanRoutes = require('./routes/sedan');
-app.use('/', sedanRoutes);
-
-// SUV routes
-const suvRoutes = require('./routes/suv');
-app.use('/', suvRoutes);
-
 // Inventory routes
 app.use("/inv", inventoryRoute);
 
