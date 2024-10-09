@@ -17,12 +17,7 @@ const baseController = require("./controllers/baseController");
 const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
 const utilities = require('./utilities/index'); // Ensure this is valid
-const motorsRoutes = require('./routes/motorsRoutes');
-const sedanRoutes = require('./routes/sedan'); 
-const suvRoutes = require('./routes/suv');
-const { buildNavigation } = require('./controllers/navController');
 app.use('/api', inventoryRoute);
-
 ///////////////Main Application Building Application/////////////
 
 /////////////
