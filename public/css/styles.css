@@ -19,7 +19,7 @@ body {
 * ************************************ */
 header {
 width: 100%;
-background-color: #ddd; /* Change to your desired background color */
+background-color: #333; /* Change to your desired background color */
 position: fixed; /* Fix the header in place */
 top: 0; /* Align at the top of the page */
 left: 0;
@@ -32,12 +32,12 @@ padding: 15px;
 font-family: Arial, sans-serif;
 }
 nav a {
-color: white; /* Navigation link color */
+color: #5e5959; /* Navigation link color */
 text-decoration: none;
 padding: 10px;
 }
 nav a:hover {
-background-color: #575757; /* Hover effect for nav items */
+background-color: #5e5959; /* Hover effect for nav items */
 border-radius: 5px;
 }
 /* Body padding to prevent the fixed header from overlapping the content */
