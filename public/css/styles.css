@@ -197,7 +197,7 @@ header .account:hover {
 /*//////////////////////////////MAIN/////////MAIN/////////////////////*/
         body {
             font-family: Arial, sans-serif;
-            background-color: white;
+            background: #f0f0f0 url("../images/site/small_check.jpg");
         }
         header {
             text-align: center;
