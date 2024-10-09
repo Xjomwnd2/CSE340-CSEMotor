@@ -20,6 +20,7 @@ const utilities = require('./utilities/index'); // Ensure this is valid
 const motorsRoutes = require('./routes/motorsRoutes');
 const sedanRoutes = require('./routes/sedan'); 
 const suvRoutes = require('./routes/suv');
+const { buildNavigation } = require('./controllers/navController');
 app.use('/api', inventoryRoute);
 ///////////////CUSTOM ROUTE/////////////
 app.get('/motors', (req, res) => {
