@@ -16,7 +16,6 @@ const staticRoutes = require('./routes/static');
 
 
 // Route and controller imports
-const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
 const utilities = require('./utilities/index'); // Ensure this is valid
 app.use('/api', inventoryRoute);
