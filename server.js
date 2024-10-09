@@ -13,6 +13,10 @@ const path = require('path');
 const baseController = require("./controllers/baseController");
 const staticRoutes = require('./routes/static');
 
+const data = await inventoryModel.getInventoryByClassificationId(classificationId);
+console.log("Query result:", data);
+
+
 
 // Route and controller imports
 const inventoryRoute = require("./routes/inventoryRoute");
