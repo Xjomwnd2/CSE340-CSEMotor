@@ -15,6 +15,7 @@ const baseController = require("./controllers/baseController");
 const staticRoutes = require('./routes/static');
 
 
+
 // Route and controller imports
 const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
 const utilities = require('./utilities/index'); // Ensure this is valid
