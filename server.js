@@ -16,14 +16,15 @@ const app = express();
 // Set up the connection pool for PostgreSQL
 const pool = new Pool({
   user: 'your_pg_user',  // Your PostgreSQL user
-  host: 'localhost',     // PostgreSQL host
-  database: 'motors_db', // Your database name
+  host: 'localhost',      // PostgreSQL host
+  database: 'motors_db',  // Your database name
   password: 'your_password', // Your database password
-  port: 5432,            // PostgreSQL port
+  port: 5432,             // PostgreSQL port
 });
 
+// Middleware to parse JSON bodies
 app.use(express.json());
-/*////////////////////////////////////////////////*/
+
 // Sample route
 app.get('/', (req, res) => {
   res.send('Welcome to the Motors API!');
@@ -39,16 +40,7 @@ app.get('/cars', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-/*//////////////////////////////////////////////////////////*/
-app.get('/some-route', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM some_table');
-    res.json(result.rows);
-  } catch (err) {
-    console.error('Database error:', err);
-    res.status(500).send('Server error');
-  }
-});
+
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));  // Serve static files (CSS, images, etc.)
 app.set('view engine', 'ejs');  // Set EJS as the view engine
