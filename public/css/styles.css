@@ -47,34 +47,12 @@ z-index: 1000; /* Ensure it stays above other content */
 /* ////////////////////////////////////////////////////////////////////////////////// */
 nav {
 display: flex; /* Aligns nav items in a row */
-
+justify-content: space-around; /* Spacing between nav items */
 padding: 15px;
 font-family: Arial, sans-serif;
 }
 /* ////////////////////////Navigation Bar/////////////////////////// */
-nav {
-  background-color: #f0f0f0;
-  display: flex;                   /* Use flexbox */
-  justify-content: center;          /* Center the content horizontally */
-  padding: 10px 0;                 /* Add some padding for spacing */
-}
-nav ul {
-  list-style-type: none;            /* Remove bullet points */
-  display: flex;                    /* Flexbox for the list items */
-  padding: 0;
-  margin: 0;
-}
-nav ul li {
-  margin: 0 15px;                  /* Add space between navigation items */
-}
-nav ul li a {
-  text-decoration: none;            /* Remove underline from links */
-  color: #333;                      /* Text color */
-  font-size: 16px;                  /* Font size for the links */
-}
-nav ul li a:hover {
-  color: #007BFF;                   /* Change color on hover */
-}
+
 /* /////////////////////////////////////////////////////////*/
 nav a {
 color: #5e5959; /* Navigation link color */
