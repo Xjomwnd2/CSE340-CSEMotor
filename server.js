@@ -23,8 +23,7 @@ async function registerAccount(account_firstname, account_lastname, account_emai
 *  Deliver login view
 * *************************************** */
 // Import required modules
-const express = require('express');
-const path = require('path');
+
 const app = express();
 
 // Assuming utilities.js is in the same directory
