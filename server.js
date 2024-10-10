@@ -47,7 +47,9 @@ const pool = new Pool({
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-// aCCOUNT
+// bodyPasser
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
 // Sample route
