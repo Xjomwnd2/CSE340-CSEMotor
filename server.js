@@ -7,6 +7,18 @@ const pool = require('./database/')
 /* ***********************
  * Require Statements
  *************************/
+/* ****************************************
+*  Deliver login view
+* *************************************** */
+async function buildLogin(req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("account/login", {
+    title: "Login",
+    nav,
+  })
+}
+
+module.exports = { buildLogin }
 // Import required modules
 const express = require('express');
 const path = require('path');
