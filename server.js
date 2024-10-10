@@ -55,25 +55,25 @@ app.get('/inventory/custom', async (req, res) => {
 });
 
 // Sedan Route - Display sedan-specific items
-app.get('/inventory/sedans', async (req, res) => {
+app.get('/inventory/sedan', async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM inventory WHERE category = 'Sedan'");
-    const sedans = result.rows;
-    res.render('sedans', { title: 'Sedans Collection', sedans });
+    const sedan = result.rows;
+    res.render('sedan', { title: 'Sedan Collection', sedan });
   } catch (err) {
-    console.error('Error fetching sedans:', err);
+    console.error('Error fetching sedan:', err);
     res.status(500).send('Server Error');
   }
 });
 
 // SUV Route - Display SUV-specific items
-app.get('/inventory/suvs', async (req, res) => {
+app.get('/inventory/suv', async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM inventory WHERE category = 'SUV'");
-    const suvs = result.rows;
-    res.render('suvs', { title: 'SUVs Collection', suvs });
+    const suv = result.rows;
+    res.render('suv', { title: 'SUV Collection', suv });
   } catch (err) {
-    console.error('Error fetching SUVs:', err);
+    console.error('Error fetching SUV:', err);
     res.status(500).send('Server Error');
   }
 });
