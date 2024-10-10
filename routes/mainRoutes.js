@@ -18,7 +18,5 @@ router.use('/', sedanRoutes); // Sedan routes
 router.use('/', suvRoutes); // SUV routes
 router.use('/', truckRoutes); // Truck routes
 
-// Use the custom routes
-router.use('/custom', customRoutes);
 
 module.exports = router;
