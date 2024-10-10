@@ -35,6 +35,9 @@ const pool = new Pool({
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// aCCOUNT
+app.use("/account", require("./routes/accountRoute"));
+
 // Sample route
 app.get('/', (req, res) => {
   res.send('Welcome to the Motors API!');
