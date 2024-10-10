@@ -26,6 +26,25 @@ top: 0; /* Align at the top of the page */
 left: 0;
 z-index: 1000; /* Ensure it stays above other content */
 }
+/*////////////////////////////////////////////////////////////////////////////////// */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;             /* Use flexbox for layout */
+            justify-content: space-between; /* Space items evenly */
+            align-items: center;      /* Center items vertically */
+            padding: 10px 20px;      /* Add some padding */
+            background-color: #f0f0f0; /* Background color */
+            border-bottom: 1px solid #ccc; /* Bottom border */
+        }
+        .new-motors {
+            margin-right: auto;       /* Pushes "My Account" to the far right */
+        }
+        .my-account {
+            margin-left: auto;        /* Ensures "New Motors" is on the far left */
+        }
+/* ////////////////////////////////////////////////////////////////////////////////// */
 nav {
 display: flex; /* Aligns nav items in a row */
 justify-content: space-around; /* Spacing between nav items */
