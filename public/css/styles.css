@@ -35,8 +35,8 @@ z-index: 1000; /* Ensure it stays above other content */
             justify-content: space-between; /* Space items evenly */
             align-items: center;      /* Center items vertically */
             padding: 10px 20px;      /* Add some padding */
-            background-color: #f0f0f0; /* Background color */
-            border-bottom: 1px solid #ccc; /* Bottom border */
+            background-color: #140202; /* Background color */
+            border-bottom: 1px solid #723bf5; /* Bottom border */
         }
         .new-motors {
             margin-right: auto;       /* Pushes "My Account" to the far right */
