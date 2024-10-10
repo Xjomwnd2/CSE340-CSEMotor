@@ -2,55 +2,56 @@
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
-const session = require("express-session")
-const pool = require('./database/')
-/* ***********************
- * Require Statements
- *************************/
-const bodyParser = require("body-parser")
-/* *****************************
-*   Register new account
-* *************************** */
-async function registerAccount(account_firstname, account_lastname, account_email, account_password){
-  try {
-    const sql = "INSERT INTO account (account_firstname, account_lastname, account_email, account_password, account_type) VALUES ($1, $2, $3, $4, 'Client') RETURNING *"
-    return await pool.query(sql, [account_firstname, account_lastname, account_email, account_password])
-  } catch (error) {
-    return error.message
-  }
-}
-/* ****************************************
-*  Deliver login view
-* *************************************** */
-// Import required modules
 
-
-// Assuming utilities.js is in the same directory
-const utilities = require('./utilities/utilities'); // Adjust the path as needed
-/*/////////
+require('dotenv').config(); // Load environment variables
 const express = require('express');
+const session = require('express-session');
+const bodyParser = require('body-parser');
 const { Pool } = require('pg');  // PostgreSQL module
 const path = require('path');
+const utilities = require('./utilities/utilities'); // Adjust the path as needed
+//const pool = require('./database/');
+
+// Initialize express app
+const app = express();
+
 // Set up the connection pool for PostgreSQL
-const pool = new Pool({
+// Comment this out if you are using the pool from your database module
+/* const pool = new Pool({
   user: 'your_pg_user',  // Your PostgreSQL user
   host: 'localhost',      // PostgreSQL host
   database: 'motors_db',  // Your database name
   password: 'your_password', // Your database password
   port: 5432,             // PostgreSQL port
-}); // */
+}); */
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-// bodyPasser
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+// Serve static files (CSS, images, etc.)
+app.use(express.static(path.join(__dirname, 'public')));
 
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Middleware for session management
+app.use(session({
+  store: new (require('connect-pg-simple')(session))({
+    createTableIfMissing: true,
+    pool,
+  }),
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  name: 'sessionId',
+}));
 
 // Sample route
 app.get('/', (req, res) => {
-  res.send('Welcome to the Motors API!');
+  res.render('index', { title: 'CSE340 Motors Home' });
 });
 
 // Example route for querying the database
@@ -64,25 +65,18 @@ app.get('/cars', async (req, res) => {
   }
 });
 
-// Middleware
-app.use(express.static(path.join(__dirname, 'public')));  // Serve static files (CSS, images, etc.)
-app.set('view engine', 'ejs');  // Set EJS as the view engine
-app.set('views', path.join(__dirname, 'views'));  // Set views directory
-// Home Route
-app.get('/', (req, res) => {
-  res.render('index', { title: 'CSE340 Motors Home' });
-});
 // Inventory Route - Display inventory items from the database
 app.get('/inventory', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM inventory');  // Query the inventory table
-    const items = result.rows;  // Fetch all rows
-    res.render('inventory', { title: 'Inventory List', items });  // Render the view and pass data
+    const result = await pool.query('SELECT * FROM inventory');
+    const items = result.rows;
+    res.render('inventory', { title: 'Inventory List', items });
   } catch (err) {
     console.error('Error fetching inventory:', err);
     res.status(500).send('Server Error');
   }
 });
+
 // Custom Route - Display custom items
 app.get('/inventory/custom', async (req, res) => {
   try {
@@ -94,6 +88,7 @@ app.get('/inventory/custom', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
 // Sedan Route - Display sedan-specific items
 app.get('/inventory/sedan', async (req, res) => {
   try {
@@ -105,6 +100,7 @@ app.get('/inventory/sedan', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
 // SUV Route - Display SUV-specific items
 app.get('/inventory/suv', async (req, res) => {
   try {
@@ -116,6 +112,7 @@ app.get('/inventory/suv', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
 // Truck Route - Display truck-specific items
 app.get('/inventory/trucks', async (req, res) => {
   try {
@@ -127,34 +124,8 @@ app.get('/inventory/trucks', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-/* **********************************
- * View Engine and Templates
-*************************************/
 
-
-/* ***********************
- * Middleware
- * ************************/
-app.use(session({
-  store: new (require('connect-pg-simple')(session))({
-    createTableIfMissing: true,
-    pool,
-  }),
-  secret: process.env.SESSION_SECRET,
-  resave: true,
-  saveUninitialized: true,
-  name: 'sessionId',
-}))
-/* **********************************
- * Local Server Information
- * Values from .env (environment) file
- ************************************/
-const port = process.env.PORT || 5500; // Fallback port if not defined
-const host = process.env.HOST || 'localhost'; // Fallback host if not defined
-/* ***********************
- * Express Error Handler
- * Place after all other middleware
- *************************/
+// Express Error Handler
 app.use(async (err, req, res, next) => {
   try {
     let nav = await utilities.getNav(); // Ensure this function exists
@@ -169,18 +140,20 @@ app.use(async (err, req, res, next) => {
     res.status(500).send("An unexpected error occurred.");
   }
 });
+
 // Catch-all 404 handler for any routes that don't match
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
 });
+
 // Last route
-app.use(async (req, res, next) => {
+app.use((req, res, next) => {
   next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
 });
-/* ***********************
- * Log statement to confirm server operation
- *************************/
+
+// Log statement to confirm server operation
+const port = process.env.PORT || 5500; // Fallback port if not defined
+const host = process.env.HOST || 'localhost'; // Fallback host if not defined
 app.listen(port, () => {
   console.log(`App listening on ${host}:${port}`);
 });
-
