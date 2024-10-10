@@ -1,8 +1,8 @@
-const utilities = require(".")
-  const { body, validationResult } = require("express-validator")
-  const validate = {}
+const utilities = require(".");
+  const { body, validationResult } = require("express-validator");
+  const validate = {};
 
-  const accountModel = require("../models/account-model")
+  const accountModel = require("../models/account-model");
 
   // valid email is required and cannot already exist in the database
 body("account_email")
@@ -13,9 +13,9 @@ body("account_email")
 .custom(async (account_email) => {
   const emailExists = await accountModel.checkExistingEmail(account_email)
   if (emailExists){
-    throw new Error("Email exists. Please log in or use different email")
+    throw new Error("Email exists. Please log in or use different email");
   }
-}),
+});
   /*  **********************************
   *  Registration Data Validation Rules
   * ********************************* */
@@ -77,7 +77,7 @@ validate.checkRegData = async (req, res, next) => {
         account_firstname,
         account_lastname,
         account_email,
-      })
+      });
       return
     }
     next()
