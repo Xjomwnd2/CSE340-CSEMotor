@@ -43,6 +43,39 @@ app.get('/', (req, res) => {
   res.render("index", { title: "Home" });
 });
 
+//inventory routes
+// Set up EJS as the templating engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Serve static files (for images, CSS, etc.)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Load vehicle data from JSON file
+const vehicles = JSON.parse(fs.readFileSync('./data/vehicles.json'));
+
+// Route for the home page
+app.get('/', (req, res) => {
+  res.send('<h1>Welcome to CSE Motors</h1>');
+});
+
+// Dynamic route for vehicle details
+app.get('/vehicle/:id', (req, res) => {
+  const vehicleId = req.params.id;
+  const vehicle = vehicles[vehicleId];
+
+  if (vehicle) {
+    res.render('vehicle', { vehicle });
+  } else {
+    res.status(404).send('Vehicle not found');
+  }
+});
+
+// Route to display all vehicles in inventory
+app.get('/inventory', (req, res) => {
+  res.render('inventory', { vehicles });
+});
+////////////////
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
