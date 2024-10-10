@@ -36,7 +36,7 @@ const pool = new Pool({
 app.use(express.json());
 
 // aCCOUNT
-app.use("/account", require("./routes/accountRoute"));
+
 
 // Sample route
 app.get('/', (req, res) => {
