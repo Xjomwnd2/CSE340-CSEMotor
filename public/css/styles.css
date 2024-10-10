@@ -4,164 +4,26 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background: #f0f0f0 url("../images/site/small_check.jpg");
+  background: #f0f0f0 url("../images/site/small_check.jpg") no-repeat center center fixed;
   color: #333;
 }
 
+/* Header styles */
 header {
   background-color: #333;
+  padding: 10px 20px;
+}
+
+header .logo {
   color: #fff;
-  padding: 1rem;
-  text-align: center;
-}
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-nav ul li {
-display: inline;
-margin-right: 10px;
-background-color: #fff;
-margin: 0px 0; /* Add top and bottom margin for spacing */
-border: 3px solid #6b99f7; /* Slightly thinner border */
-border-radius: 15px; /* Increased border radius for softer edges */
-padding: 25px; /* Slightly more padding for better spacing */
-}
-a {
-  color: #fff;
+  font-size: 24px;
   text-decoration: none;
 }
-/* /////////ACCOUNT and BUTTON positions////*/
-/* Header */
-header {
-  background-color: #333;
-  padding: 10px 0;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-}
-header nav {
-  display: flex;
-  gap: 30px; /* Spacing between the buttons */
-}
-header nav a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  background-color: #444;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-header nav a:hover {
-  background-color: #555;
-}
-header .account {
-  color: white;
-  background-color: #444;
-  padding: 10px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-header .account:hover {
-  background-color: #555;
-}
-/* Delorean Upgrades Section */
-.upgrades {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  padding: 20px;
-}
-.upgrades img {
-  width: 100px;
-  display: block;
-  margin: 0 auto;
-}
-/* Reviews Section */
-.reviews {
-  padding: 20px;
-  background-color: #f8f8f8;
-}
-.reviews ul {
-  list-style: none;
-  padding: 0;
-}
-.reviews li {
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-.reviews .stars {
-  color: gold;
-  font-size: 16px;
-}
-/*//////////////////////////////MAIN/////////MAIN/////////////////////*/
-/* //////////////////////// */
-main {
-  background-color: #f9f9f9; /* Lighter background for contrast */
-  border: 3px solid #6b99f7; /* Slightly thinner border */
-  border-radius: 15px; /* Increased border radius for softer edges */
-  padding: 25px; /* Slightly more padding for better spacing */
-  height: auto;
-  width: auto; /* Adjusted width for balance */
-  min-height: 65vh; /* Minimum height for better responsiveness */
-  max-height: 85vh; /* Slightly reduced max height */
-  margin: 20px auto; /* Added top margin for spacing */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
-  overflow-y: scroll; /* Ensure vertical scroll when content overflows */
-  text-align: left; /* Align text to the left for readability */
-  display: flex; /* Use flexbox for better alignment */
-  flex-direction: column; /* Stack content vertically */
-  align-items: center; /* Center elements horizontally */
-}
-main img,
-.container img {
-  max-width: auto; /* Reduce max width slightly for padding */
-  height: auto; /* Maintain image aspect ratio */
-  margin: 10px 0; /* Add top and bottom margin for spacing */
-  border-radius: 8px; /* Optional: Add slight rounding to images */
-}
-/* //////////////////custom.ejs////////////////////////////*/  
 
-
-/* Large screens */
-@media (min-width: 1200px) {
-  body {
-      background: #f0f0f0 url("../images/site/large_check.jpg"); /* Different background for large screens */
-  }
-  .navbar {
-      padding: 20px; /* More padding for large screens */
-  }
-}
-
-/* Medium screens */
-@media (min-width: 768px) and (max-width: 1199px) {
-  body {
-      background: #f0f0f0 url("../images/site/medium_check.jpg"); /* Different background for medium screens */
-  }
-  .navbar {
-      padding: 15px; /* Adjust padding for medium screens */
-  }
-}
-
-/* Small screens */
-@media (max-width: 767px) {
-  body {
-      background: #f0f0f0 url("../images/site/small_check.jpg"); /* Default background for small screens */
-  }
-  .navbar {
-      padding: 10px; /* Less padding for small screens */
-  }
-}
-
-/* Additional styles for responsive design */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
 }
 
 .nav-links {
@@ -180,16 +42,97 @@ main img,
   text-decoration: underline;
 }
 
-/* Style for the header */
-header {
-  background-color: #333;
-  padding: 10px 20px;
+/* Main content styles */
+main {
+  padding: 20px;
+  background-color: #fff;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive adjustments for links in navbar */
-@media (max-width: 767px) {
-  .nav-links {
-      flex-direction: column; /* Stack links vertically on small screens */
+/* Section styles */
+section {
+  margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+  color: #333;
+}
+
+p {
+  line-height: 1.8;
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+  body {
+      background: #f0f0f0 url("../images/site/large_check.jpg") no-repeat center center fixed;
+  }
+  
+  .navbar {
+      padding: 20px; /* More padding for large screens */
+  }
+
+  main {
+      padding: 40px;
+  }
+
+  .nav-links a {
+      font-size: 20px; /* Larger font size for links */
   }
 }
 
+/* Medium screens */
+@media (min-width: 768px) and (max-width: 1199px) {
+  body {
+      background: #f0f0f0 url("../images/site/medium_check.jpg") no-repeat center center fixed;
+  }
+
+  .navbar {
+      padding: 15px; /* Adjust padding for medium screens */
+  }
+
+  main {
+      padding: 30px; /* Adjust padding for medium screens */
+  }
+
+  .nav-links a {
+      font-size: 18px; /* Adjust font size for medium screens */
+  }
+}
+
+/* Small screens */
+@media (max-width: 767px) {
+  body {
+      background: #f0f0f0 url("../images/site/small_check.jpg") no-repeat center center fixed;
+  }
+
+  .navbar {
+      flex-direction: column; /* Stack navbar items vertically */
+  }
+
+  .nav-links {
+      flex-direction: column; /* Stack links vertically on small screens */
+      align-items: flex-start; /* Align links to the start */
+  }
+
+  main {
+      padding: 20px; /* Less padding for small screens */
+  }
+
+  .nav-links a {
+      font-size: 16px; /* Smaller font size for links */
+  }
+}
+
+/* Additional styles for footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
