@@ -12,6 +12,22 @@ const env = require("dotenv").config();
 const path = require('path');
 const app = express();
 
+//Navigation
+// Define your navigation items
+const navItems = [
+  { name: 'Home', link: '/' },
+  { name: 'Custom', link: '/custom' },
+  { name: 'Sedan', link: '/sedan' },
+  { name: 'SUV', link: '/suv' },
+  { name: 'Trucks', link: '/trucks' }
+];
+
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+  res.render('home', { navItems });
+});
+
 // Route and controller imports
 const baseController = require("./controllers/baseController");
 const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
