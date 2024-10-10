@@ -10,4 +10,4 @@ async function buildLogin(req, res, next) {
     });
   };
   
-  module.exports = { buildLogin }
+  module.exports = { buildLogin };
