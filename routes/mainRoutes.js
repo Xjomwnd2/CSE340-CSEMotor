@@ -10,6 +10,8 @@ const customRoutes = require('./customRoutes'); // Adjust path as needed
 const sedanRoutes = require('./sedanRoutes'); // Adjust path as needed
 const suvRoutes = require('./suvRoutes'); // Adjust path as needed
 const truckRoutes = require('./truckRoutes'); // Adjust path as needed
+const baseController = require('../controllers/baseController'); // Adjust path if needed
+
 
 // Use the routes
 router.use('/api', inventoryRoute); // Inventory API
