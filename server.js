@@ -47,18 +47,6 @@ app.get('/inventory', async (req, res) => {
   }
 });
 
-// Electric Route - Display electric vehicles
-app.get('/inventory/electric', async (req, res) => {
-  try {
-    const result = await pool.query("SELECT * FROM inventory WHERE category = 'Electric'");
-    const electric = result.rows;
-    res.render('electric', { title: 'Electric Cars Collection', electric });
-  } catch (err) {
-    console.error('Error fetching electric vehicles:', err);
-    res.status(500).send('Server Error');
-  }
-});
-
 // Sedan Route - Display sedan-specific items
 app.get('/inventory/sedans', async (req, res) => {
   try {
