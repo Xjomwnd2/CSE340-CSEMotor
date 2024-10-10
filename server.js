@@ -6,7 +6,7 @@
 /* ***********************
  * Require Statements
  *************************/
-import express from 'express';
+const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const app = express();
 const path = require('path');
