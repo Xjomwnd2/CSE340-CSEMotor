@@ -11,7 +11,7 @@ body {
 /* Large screens */
 @media (min-width: 1200px) {
   body {
-      background: #f0f0f0 url("../images/site/large_check.jpg"); /* Different background for large screens */
+      background: #f0f0f0 url("../images/site/small_check.png"); /* Different background for large screens */
   }
   .navbar {
       padding: 20px; /* More padding for large screens */
