@@ -11,3 +11,11 @@ async function buildLogin(req, res, next) {
   };
   
   module.exports = { buildLogin };
+
+  // Process the login attempt
+router.post(
+  "/login",
+  (req, res) => {
+    res.status(200).send('login process');
+  }
+);
