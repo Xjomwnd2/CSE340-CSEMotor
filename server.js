@@ -32,7 +32,7 @@ app.set('views', path.join(__dirname, 'views'));  // Set views directory
 
 // Home Route
 app.get('/', (req, res) => {
-  res.render('home', { title: 'CSE340 Motors Home' });
+  res.render('index', { title: 'CSE340 Motors Home' });
 });
 
 // Inventory Route - Display inventory items from the database
