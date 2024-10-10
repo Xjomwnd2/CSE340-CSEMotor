@@ -9,38 +9,67 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
 const app = express();
-// Route and controller imports
-const static = require("./routes/static");
+const path = require('path');
 const baseController = require("./controllers/baseController");
-const inventoryRoute = require("./routes/inventoryRoute"); // Added require statement for inventoryRoute
-const utilities = require('./utilities/index'); // Utilities functions
+const staticRoutes = require('./routes/static');
+
+
+// Route and controller imports
+const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
+const utilities = require('./utilities/index'); // Ensure this is valid
 app.use('/api', inventoryRoute);
+///////////////Main Application Building Application/////////////
+
+// Use the static route
+app.use('/static', staticRoutes);
+/////////////
 /* ***********************
  * View Engine and Templates
  *************************/
 app.set("view engine", "ejs");
 app.use(expressLayouts);
-app.set("layout", "./layouts/layout"); // Not at views root
+app.set("layout", "./layouts/layout");
 /* ***********************
  * Routes
  *************************/
 app.use(static);
-/***********************************
-* Home, Custom, Sedan, SUV, Truck routes
-********************************* */
-//****************************** */
+/* ***************** */
+///
+app.use(express.static(path.join(__dirname, 'public')));
+///
 // Index route
-app.get("/", function(req, res) {
+app.get("/", (req, res) => {
   res.render("index", { title: "Home" });
 });
-
+// CUSTOME/////////////////
+// Set EJS as the templating engine
+// Import the motors route (Ensure this path is correct based on your file structure) // Adjust path as needed
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+// Serve static files from the 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
+// Use the motors route
+app.use('/motors', motorsRoutes);
+// Basic homepage route (Optional)
 app.get('/', (req, res) => {
-  const nav = [/* your navigation data here */];
-  res.render('index', { nav }); // Pass the 'nav' variable here
+  res.render("index", { title: "Home" });
 });
-
+////////////
+// sedan////////////////
+ // Import the sedan routes
+app.set('view engine', 'ejs');
+app.set('views', './views'); // Set the views directory
+app.use('/', sedanRoutes); // Use the sedan routes
+////////////////////////
 // Inventory routes
-app.use("/inv", inventoryRoute); // Now properly linked
+app.use("/inv", inventoryRoute);
+/////////////SUV////////////////////
+// Import the SUV routes
+app.set('view engine', 'ejs');
+app.set('views', './views'); // Set the views directory
+app.use('/', suvRoutes); // Use the SUV routes
+////////////////////////////////////
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
@@ -53,7 +82,7 @@ const host = process.env.HOST;
  *************************/
 app.use(async (err, req, res, next) => {
   try {
-    let nav = await utilities.getNav(); // Ensure getNav is properly defined and exported in utilities/index.js
+    let nav = await utilities.getNav(); // Ensure this function exists
     console.error(`Error at: "${req.originalUrl}": ${err.message}`);
     res.status(err.status || 500).render("errors/error", {
       title: err.status || 'Server Error',
@@ -69,13 +98,7 @@ app.use(async (err, req, res, next) => {
 app.use((req, res, next) => {
   res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
 });
-// Error-handling middleware for all other errors
-app.use((err, req, res, next) => {
-  console.error(err.stack); // Log error stack trace to the console (for debugging)
-  res.status(500).render('errors/error', { title: 'Something Went Wrong', message: err.message });
-});
 // Last route
-// File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
 });
