@@ -7,6 +7,7 @@ const pool = require('./database/')
 /* ***********************
  * Require Statements
  *************************/
+const bodyParser = require("body-parser")
 /* *****************************
 *   Register new account
 * *************************** */
