@@ -3,7 +3,7 @@ const router = express.Router();
 
 // Route and controller imports
 const inventoryRoute = require("./inventoryRoute"); // Ensure this is valid
-const utilities = require('./utilities/index'); // Ensure this is valid
+const utilities = require('../utilities/index'); // Adjust the path if needed
 const motorsRoutes = require('./motorsRoutes'); // Adjust path as needed
 const customRoutes = require('./customRoutes'); // Adjust path as needed
 const sedanRoutes = require('./sedanRoutes'); // Adjust path as needed
