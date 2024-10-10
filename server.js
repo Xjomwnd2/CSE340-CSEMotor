@@ -14,8 +14,13 @@ const path = require('path');
 const app = express();
 
 // Set up the connection pool for PostgreSQL
-// server.js
-const pool = require('./db'); // Import the pool from db.js
+const pool = new Pool({
+  user: 'your_pg_user',  // Your PostgreSQL user
+  host: 'localhost',     // PostgreSQL host
+  database: 'motors_db', // Your database name
+  password: 'your_password', // Your database password
+  port: 5432,            // PostgreSQL port
+});
 
 app.get('/some-route', async (req, res) => {
   try {
@@ -26,17 +31,14 @@ app.get('/some-route', async (req, res) => {
     res.status(500).send('Server error');
   }
 });
-
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));  // Serve static files (CSS, images, etc.)
 app.set('view engine', 'ejs');  // Set EJS as the view engine
 app.set('views', path.join(__dirname, 'views'));  // Set views directory
-
 // Home Route
 app.get('/', (req, res) => {
   res.render('index', { title: 'CSE340 Motors Home' });
 });
-
 // Inventory Route - Display inventory items from the database
 app.get('/inventory', async (req, res) => {
   try {
@@ -48,7 +50,6 @@ app.get('/inventory', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 // Custom Route - Display custom items
 app.get('/inventory/custom', async (req, res) => {
   try {
@@ -60,7 +61,6 @@ app.get('/inventory/custom', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 // Sedan Route - Display sedan-specific items
 app.get('/inventory/sedan', async (req, res) => {
   try {
@@ -72,7 +72,6 @@ app.get('/inventory/sedan', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 // SUV Route - Display SUV-specific items
 app.get('/inventory/suv', async (req, res) => {
   try {
@@ -84,7 +83,6 @@ app.get('/inventory/suv', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 // Truck Route - Display truck-specific items
 app.get('/inventory/trucks', async (req, res) => {
   try {
@@ -101,7 +99,6 @@ app.get('/inventory/trucks', async (req, res) => {
 *************************************/
 
 
-
 /* ***********************
  * Middleware
  * ************************/
@@ -115,7 +112,6 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
-
 /* **********************************
  * Local Server Information
  * Values from .env (environment) file
@@ -148,10 +144,10 @@ app.use((req, res, next) => {
 app.use(async (req, res, next) => {
   next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
 });
-
 /* ***********************
  * Log statement to confirm server operation
  *************************/
 app.listen(port, () => {
   console.log(`App listening on ${host}:${port}`);
 });
+
