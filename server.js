@@ -1,8 +1,3 @@
-/* ****************************************
-Account Controller
-* Unit 4, deliver login view activity 
-************************************** */
-const utilities = require('../utilities');
 /******************************************
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
@@ -15,12 +10,13 @@ const pool = require('./database/')
 /* ****************************************
 *  Deliver login view
 * *************************************** */
-
-module.exports = { buildLogin }
 // Import required modules
 const express = require('express');
 const path = require('path');
 const app = express();
+
+// Assuming utilities.js is in the same directory
+const utilities = require('./utilities/utilities'); // Adjust the path as needed
 
 /* // Import required modules
 const express = require('express');
