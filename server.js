@@ -35,8 +35,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Use the routes
 app.use('/api', inventoryRoute); // Inventory API
 app.use('/motors', motorsRoutes); // Motors routes
+app.use('/', customRoutes); // Custom routes
 app.use('/', sedanRoutes); // Sedan routes
 app.use('/', suvRoutes); // SUV routes
+app.use('/', trucksRoutes); // trucks routes
 
 // Basic homepage route
 app.get('/', (req, res) => {
