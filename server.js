@@ -19,7 +19,7 @@ const navItems = [
   { name: 'Custom', link: '/custom' },
   { name: 'Sedan', link: '/sedan' },
   { name: 'SUV', link: '/suv' },
-  { name: 'Trucks', link: '/trucks' }
+  { name: 'Truck', link: '/trucks' }
 ];
 
 // Home route
@@ -38,7 +38,7 @@ const motorsRoutes = require('./routes/motorsRoutes'); // Adjust path as needed
 const suvRoutes = require('./routes/customRoutes'); // Adjust path as needed
 const sedanRoutes = require('./routes/sedanRoutes'); // Adjust path as needed
 const suvRoutes = require('./routes/suvRoutes'); // Adjust path as needed
-const suvRoutes = require('./routes/trucksRoutes'); // Adjust path as needed
+const suvRoutes = require('./routes/truckRoutes'); // Adjust path as needed
 
 // Middleware
 app.use(expressLayouts);
@@ -58,7 +58,7 @@ app.use('/motors', motorsRoutes); // Motors routes
 app.use('/', customRoutes); // Custom routes
 app.use('/', sedanRoutes); // Sedan routes
 app.use('/', suvRoutes); // SUV routes
-app.use('/', trucksRoutes); // trucks routes
+app.use('/', truckRoutes); // truck routes
 
 // Basic homepage route
 app.get('/', (req, res) => {
