@@ -2,6 +2,8 @@
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
+const session = require("express-session")
+const pool = require('./database/')
 /* ***********************
  * Require Statements
  *************************/
