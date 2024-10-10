@@ -9,18 +9,8 @@ const pool = require('./database/')
  *************************/
 // Import required modules
 const express = require('express');
-const { Pool } = require('pg');  // PostgreSQL module
 const path = require('path');
 const app = express();
-
-// Set up the connection pool for PostgreSQL
-const pool = new Pool({
-  user: 'your_pg_user',  // Your PostgreSQL user
-  host: 'localhost',      // PostgreSQL host
-  database: 'motors_db',  // Your database name
-  password: 'your_password', // Your database password
-  port: 5432,             // PostgreSQL port
-});
 
 // Middleware to parse JSON bodies
 app.use(express.json());
