@@ -90,7 +90,7 @@ transform: translateY(-5px); /* Lift the item slightly on hover */
 }
 /* Styles for the vehicle image */
 #inv-display li img {
-max-width: 100%;
+max-width: 80%;
 height: auto;
 display: block; /* Ensures proper spacing around the image */
 margin-bottom: 15px;
