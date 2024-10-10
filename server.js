@@ -12,8 +12,11 @@ const app = express();
 const path = require('path');
 const baseController = require("./controllers/baseController");
 const staticRoutes = require('./routes/static');
+async function getData() {
+  const data = await inventoryModel.getInventoryByClassificationId(classificationId);
+  return data;
+}
 
-const data = await inventoryModel.getInventoryByClassificationId(classificationId);
 console.log("Query result:", data);
 
 
