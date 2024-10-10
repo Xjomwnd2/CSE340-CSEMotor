@@ -20,18 +20,6 @@ const pool = new Pool({
   port: 5432,            // PostgreSQL port
 });
 
-/* ***********************
- * Local Server Information
- * Values from .env (environment) file
- *************************/
-const port = process.env.PORT || 5500; // Fallback port if not defined
-const host = process.env.HOST || 'localhost'; // Fallback host if not defined
-/* ***********************
- * Express Error Handler
- * Place after all other middleware
- *************************/
-
-
 // Middleware
 app.use(express.static(path.join(__dirname, 'public')));  // Serve static files (CSS, images, etc.)
 app.set('view engine', 'ejs');  // Set EJS as the view engine
@@ -101,7 +89,16 @@ app.get('/inventory/electric', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
+/* ***********************
+ * Local Server Information
+ * Values from .env (environment) file
+ *************************/
+const port = process.env.PORT || 5500; // Fallback port if not defined
+const host = process.env.HOST || 'localhost'; // Fallback host if not defined
+/* ***********************
+ * Express Error Handler
+ * Place after all other middleware
+ *************************/
 
 /* ***********************
  * Log statement to confirm server operation
