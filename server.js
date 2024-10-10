@@ -1,3 +1,10 @@
+/* ******************************************
+ * This server.js file is the primary file of the 
+ * application. It is used to control the project.
+ *******************************************/
+/* ***********************
+ * Require Statements
+ *************************/
 // Import required modules
 const express = require('express');
 const { Pool } = require('pg');  // PostgreSQL module
