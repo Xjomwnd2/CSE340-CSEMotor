@@ -8,6 +8,96 @@ body {
   color: #333;
 }
 
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav ul li {
+display: inline;
+margin-right: 10px;
+background-color: #fff;
+margin: 0px 0; /* Add top and bottom margin for spacing */
+border: 3px solid #6b99f7; /* Slightly thinner border */
+border-radius: 15px; /* Increased border radius for softer edges */
+padding: 25px; /* Slightly more padding for better spacing */
+}
+a {
+  color: #fff;
+  text-decoration: none;
+}
+/* /////////ACCOUNT and BUTTON positions////*/
+/* Header */
+header {
+  background-color: #333;
+  padding: 10px 0;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+header nav {
+  display: flex;
+  gap: 30px; /* Spacing between the buttons */
+}
+header nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #444;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+header nav a:hover {
+  background-color: #555;
+}
+header .account {
+  color: white;
+  background-color: #444;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+header .account:hover {
+  background-color: #555;
+}
+/* Delorean Upgrades Section */
+.upgrades {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+.upgrades img {
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+/* Reviews Section */
+.reviews {
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+.reviews ul {
+  list-style: none;
+  padding: 0;
+}
+.reviews li {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.reviews .stars {
+  color: gold;
+  font-size: 16px;
+}
+/*//////////////////////////////MAIN/////////MAIN/////////////////////*/
 /* //////////////////////// */
 main {
   background-color: #f9f9f9; /* Lighter background for contrast */
