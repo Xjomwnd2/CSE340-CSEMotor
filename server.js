@@ -14,12 +14,17 @@ const path = require('path');
 const app = express();
 
 // Set up the connection pool for PostgreSQL
-const pool = new Pool({
-  user: 'your_pg_user',  // Your PostgreSQL user
-  host: 'localhost',     // PostgreSQL host
-  database: 'motors_db', // Your database name
-  password: 'your_password', // Your database password
-  port: 5432,            // PostgreSQL port
+// server.js
+const pool = require('./db'); // Import the pool from db.js
+
+app.get('/some-route', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM some_table');
+    res.json(result.rows);
+  } catch (err) {
+    console.error('Database error:', err);
+    res.status(500).send('Server error');
+  }
 });
 
 // Middleware
