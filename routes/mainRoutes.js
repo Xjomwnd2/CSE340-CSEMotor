@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 // Route and controller imports
-const baseController = require("./controllers/baseController");
 const inventoryRoute = require("./inventoryRoute"); // Ensure this is valid
 const utilities = require('./utilities/index'); // Ensure this is valid
 const motorsRoutes = require('./motorsRoutes'); // Adjust path as needed
