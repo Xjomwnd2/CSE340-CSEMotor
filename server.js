@@ -17,8 +17,10 @@ const baseController = require("./controllers/baseController");
 const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
 const utilities = require('./utilities/index'); // Ensure this is valid
 const motorsRoutes = require('./routes/motorsRoutes'); // Adjust path as needed
+const suvRoutes = require('./routes/customRoutes'); // Adjust path as needed
 const sedanRoutes = require('./routes/sedanRoutes'); // Adjust path as needed
 const suvRoutes = require('./routes/suvRoutes'); // Adjust path as needed
+const suvRoutes = require('./routes/trucksRoutes'); // Adjust path as needed
 
 // Middleware
 app.use(expressLayouts);
