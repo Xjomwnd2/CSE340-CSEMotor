@@ -51,6 +51,32 @@ main {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+main {
+  background-color: #f9f9f9; /* Lighter background for contrast */
+  border: 3px solid #6b99f7; /* Slightly thinner border */
+  border-radius: 15px; /* Increased border radius for softer edges */
+  padding: 25px; /* Slightly more padding for better spacing */
+  height: auto;
+  width: auto; /* Adjusted width for balance */
+  min-height: 65vh; /* Minimum height for better responsiveness */
+  max-height: 85vh; /* Slightly reduced max height */
+  margin: 20px auto; /* Added top margin for spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+  overflow-y: scroll; /* Ensure vertical scroll when content overflows */
+  text-align: left; /* Align text to the left for readability */
+  display: flex; /* Use flexbox for better alignment */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center elements horizontally */
+}
+main img,
+.container img {
+  max-width: auto; /* Reduce max width slightly for padding */
+  height: auto; /* Maintain image aspect ratio */
+  margin: 10px 0; /* Add top and bottom margin for spacing */
+  border-radius: 8px; /* Optional: Add slight rounding to images */
+}
+/* //////////////////custom.ejs////////////////////////////*/ 
+
 /* Section styles */
 section {
   margin-bottom: 20px;
