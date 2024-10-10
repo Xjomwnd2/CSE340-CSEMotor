@@ -99,6 +99,28 @@ const host = process.env.HOST || 'localhost'; // Fallback host if not defined
  * Express Error Handler
  * Place after all other middleware
  *************************/
+app.use(async (err, req, res, next) => {
+  try {
+    let nav = await utilities.getNav(); // Ensure this function exists
+    console.error(`Error at: "${req.originalUrl}": ${err.message}`);
+    res.status(err.status || 500).render("errors/error", {
+      title: err.status || 'Server Error',
+      message: err.message,
+      nav
+    });
+  } catch (error) {
+    console.error("Error rendering the error page:", error);
+    res.status(500).send("An unexpected error occurred.");
+  }
+});
+// Catch-all 404 handler for any routes that don't match
+app.use((req, res, next) => {
+  res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
+});
+// Last route
+app.use(async (req, res, next) => {
+  next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
+});
 
 /* ***********************
  * Log statement to confirm server operation
