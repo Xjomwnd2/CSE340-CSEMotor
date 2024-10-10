@@ -1,12 +1,9 @@
-<!-- Welcome Section -->
-   <!-- Content Heading -->
-<% if (title) { %>
-    <h1><%= title %></h1>
-    <% } else {
-      res.redirect('/')
-    } %>
- <section>
+<div id="home">
+ <!-- Welcome Section -->
     <h1>Welcome to CSE Motors</h1>
+    <div id="hero">
+        <img src="/images/vehicles/delorean.jpg" alt="DMC Delorean" width = "500" height="255"/> 
+    </div>
     <div class="delorean-container">
         <div class="delorean-details">
             <h2>DMC Delorean</h2>
@@ -17,12 +14,11 @@
             </ul>
             <button aria-label="Purchase DMC Delorean">Own Today</button>
         </div>
-        <img src="/images/vehicles/delorean.jpg" alt="DMC Delorean" width = "500" height="255"/> 
     </div>
-</section>
+</div>
 
 <!-- Upgrades and Reviews -->
-<section>
+<div>
     <h3>Delorean Upgrades</h3>
     <div class="upgrades-reviews">
         <!-- Delorean Upgrades -->
@@ -57,7 +53,6 @@
             </ul>
         </div>
     </div>
-</section>
+</div>
 <!-- Link to the custom.js file -->
-<script src="/js/custom.js"></script>
 <script src="script.js"></script>
