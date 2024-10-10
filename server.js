@@ -22,6 +22,24 @@ const pool = new Pool({
   port: 5432,            // PostgreSQL port
 });
 
+app.use(express.json());
+/*////////////////////////////////////////////////*/
+// Sample route
+app.get('/', (req, res) => {
+  res.send('Welcome to the Motors API!');
+});
+
+// Example route for querying the database
+app.get('/cars', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM cars');
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error executing query', error.stack);
+    res.status(500).send('Internal Server Error');
+  }
+});
+/*//////////////////////////////////////////////////////////*/
 app.get('/some-route', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM some_table');
