@@ -2,72 +2,77 @@
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
-
 /* ***********************
  * Require Statements
  *************************/
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const env = require("dotenv").config();
 const app = express();
-const path = require('path');
-const baseController = require("./controllers/baseController");
-const staticRoutes = require('./routes/static');
-async function getData() {
-  const data = await inventoryModel.getInventoryByClassificationId(classificationId);
-  return data;
-}
-
-console.log("Query result:", data);
-
-
-
 // Route and controller imports
-const inventoryRoute = require("./routes/inventoryRoute");
-const utilities = require('./utilities/index');
-
-// Set EJS as the templating engine
+const static = require("./routes/static");
+const baseController = require("./controllers/baseController");
+const inventoryRoute = require("./routes/inventoryRoute"); // Added require statement for inventoryRoute
+const utilities = require('./utilities/index'); // Utilities functions
+app.use('/api', inventoryRoute);
+/* ***********************
+ * View Engine and Templates
+ *************************/
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, 'views'));
 app.use(expressLayouts);
-app.set("layout", "./layouts/layout");
-
-// Use the static route
-app.use('/static', staticRoutes);
-
-// Serve static files from the 'public' folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Inventory routes
-app.use("/inv", inventoryRoute);
-
+app.set("layout", "./layouts/layout"); // Not at views root
+/* ***********************
+ * Routes
+ *************************/
+app.use(static);
+/***********************************
+* Home, Custom, Sedan, SUV, Truck routes
+********************************* */
+//****************************** */
 // Index route
-app.get("/", (req, res) => {
+app.get("/", function(req, res) {
   res.render("index", { title: "Home" });
 });
-
+// Inventory routes
+app.use("/inv", inventoryRoute); // Now properly linked
 /* ***********************
  * Local Server Information
+ * Values from .env (environment) file
  *************************/
-const port = process.env.PORT || 5500;
-const host = process.env.HOST || 'localhost';
-
+const port = process.env.PORT;
+const host = process.env.HOST;
 /* ***********************
  * Express Error Handler
+ * Place after all other middleware
  *************************/
 app.use(async (err, req, res, next) => {
   try {
-    let nav = await utilities.getNav();
-    res.status(err.status || 500).render("errors/error", { title: 'Server Error', message: err.message, nav });
+    let nav = await utilities.getNav(); // Ensure getNav is properly defined and exported in utilities/index.js
+    console.error(`Error at: "${req.originalUrl}": ${err.message}`);
+    res.status(err.status || 500).render("errors/error", {
+      title: err.status || 'Server Error',
+      message: err.message,
+      nav
+    });
   } catch (error) {
+    console.error("Error rendering the error page:", error);
     res.status(500).send("An unexpected error occurred.");
   }
 });
-
-// Catch-all 404 handler
+// Catch-all 404 handler for any routes that don't match
 app.use((req, res, next) => {
   res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
 });
-
+// Error-handling middleware for all other errors
+app.use((err, req, res, next) => {
+  console.error(err.stack); // Log error stack trace to the console (for debugging)
+  res.status(500).render('errors/error', { title: 'Something Went Wrong', message: err.message });
+});
+// Last route
+// File Not Found Route - must be last route in list
+app.use(async (req, res, next) => {
+  next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
+});
 /* ***********************
  * Log statement to confirm server operation
  *************************/
