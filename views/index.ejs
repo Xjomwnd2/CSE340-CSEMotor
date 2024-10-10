@@ -1,9 +1,26 @@
-<% if (title) { %>
-    <h1><%= title %></h1>
-    <% } else {
-      res.redirect('/')
-    } %>
-<div id="home">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Search Results</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/motors/sedans">Sedans</a></li>
+                <li><a href="/motors/suvs">SUVs</a></li>
+                <li><a href="/motors/trucks">Trucks</a></li>
+                <li><a href="/motors/electric">Electric Cars</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
  <!-- Welcome Section -->
     <h1>Welcome to CSE Motors</h1>
     <div id="hero">
@@ -59,5 +76,13 @@
         </div>
     </div>
 </div>
+
+</main>
+
+<footer>
+    <p>&copy; 2024 CSE340 Motors</p>
+</footer>
 <!-- Link to the custom.js file -->
 <script src="script.js"></script>
+</body>
+</html>
