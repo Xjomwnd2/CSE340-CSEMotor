@@ -33,6 +33,12 @@ app.use(static);
 app.get("/", function(req, res) {
   res.render("index", { title: "Home" });
 });
+
+app.get('/', (req, res) => {
+  const nav = [/* your navigation data here */];
+  res.render('index', { nav }); // Pass the 'nav' variable here
+});
+
 // Inventory routes
 app.use("/inv", inventoryRoute); // Now properly linked
 /* ***********************
