@@ -33,7 +33,6 @@ const utilities = require('./utilities/utilities'); // Adjust the path as needed
 const express = require('express');
 const { Pool } = require('pg');  // PostgreSQL module
 const path = require('path');
-const app = express();
 // Set up the connection pool for PostgreSQL
 const pool = new Pool({
   user: 'your_pg_user',  // Your PostgreSQL user
