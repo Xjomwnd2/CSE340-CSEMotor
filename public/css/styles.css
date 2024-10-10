@@ -4,26 +4,46 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background: #f0f0f0 url("../images/site/small_check.jpg") no-repeat center center fixed;
+  background: #f0f0f0 url("../images/site/small_check.jpg");
   color: #333;
 }
 
-/* Header styles */
-header {
-  background-color: #333;
-  padding: 10px 20px;
+/* Large screens */
+@media (min-width: 1200px) {
+  body {
+      background: #f0f0f0 url("../images/site/large_check.jpg"); /* Different background for large screens */
+  }
+  .navbar {
+      padding: 20px; /* More padding for large screens */
+  }
 }
 
-header .logo {
-  color: #fff;
-  font-size: 24px;
-  text-decoration: none;
+/* Medium screens */
+@media (min-width: 768px) and (max-width: 1199px) {
+  body {
+      background: #f0f0f0 url("../images/site/medium_check.jpg"); /* Different background for medium screens */
+  }
+  .navbar {
+      padding: 15px; /* Adjust padding for medium screens */
+  }
 }
 
+/* Small screens */
+@media (max-width: 767px) {
+  body {
+      background: #f0f0f0 url("../images/site/small_check.jpg"); /* Default background for small screens */
+  }
+  .navbar {
+      padding: 10px; /* Less padding for small screens */
+  }
+}
+
+/* Additional styles for responsive design */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #333;
 }
 
 .nav-links {
@@ -42,97 +62,16 @@ header .logo {
   text-decoration: underline;
 }
 
-/* Main content styles */
-main {
-  padding: 20px;
-  background-color: #fff;
-  margin: 20px auto;
-  max-width: 1200px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Style for the header */
+header {
+  background-color: #333;
+  padding: 10px 20px;
 }
 
-/* Section styles */
-section {
-  margin-bottom: 20px;
-}
-
-h1, h2, h3 {
-  color: #333;
-}
-
-p {
-  line-height: 1.8;
-}
-
-/* Large screens */
-@media (min-width: 1200px) {
-  body {
-      background: #f0f0f0 url("../images/site/large_check.jpg") no-repeat center center fixed;
-  }
-  
-  .navbar {
-      padding: 20px; /* More padding for large screens */
-  }
-
-  main {
-      padding: 40px;
-  }
-
-  .nav-links a {
-      font-size: 20px; /* Larger font size for links */
-  }
-}
-
-/* Medium screens */
-@media (min-width: 768px) and (max-width: 1199px) {
-  body {
-      background: #f0f0f0 url("../images/site/medium_check.jpg") no-repeat center center fixed;
-  }
-
-  .navbar {
-      padding: 15px; /* Adjust padding for medium screens */
-  }
-
-  main {
-      padding: 30px; /* Adjust padding for medium screens */
-  }
-
-  .nav-links a {
-      font-size: 18px; /* Adjust font size for medium screens */
-  }
-}
-
-/* Small screens */
+/* Responsive adjustments for links in navbar */
 @media (max-width: 767px) {
-  body {
-      background: #f0f0f0 url("../images/site/small_check.jpg") no-repeat center center fixed;
-  }
-
-  .navbar {
-      flex-direction: column; /* Stack navbar items vertically */
-  }
-
   .nav-links {
       flex-direction: column; /* Stack links vertically on small screens */
-      align-items: flex-start; /* Align links to the start */
-  }
-
-  main {
-      padding: 20px; /* Less padding for small screens */
-  }
-
-  .nav-links a {
-      font-size: 16px; /* Smaller font size for links */
   }
 }
 
-/* Additional styles for footer */
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 15px 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
