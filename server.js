@@ -30,16 +30,6 @@ app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
 
-// Route and controller imports
-const baseController = require("./controllers/baseController");
-const inventoryRoute = require("./routes/inventoryRoute"); // Ensure this is valid
-const utilities = require('./utilities/index'); // Ensure this is valid
-const motorsRoutes = require('./routes/motorsRoutes'); // Adjust path as needed
-const suvRoutes = require('./routes/customRoutes'); // Adjust path as needed
-const sedanRoutes = require('./routes/sedanRoutes'); // Adjust path as needed
-const suvRoutes = require('./routes/suvRoutes'); // Adjust path as needed
-const suvRoutes = require('./routes/truckRoutes'); // Adjust path as needed
-
 // Middleware
 app.use(expressLayouts);
 app.set("view engine", "ejs");
@@ -52,14 +42,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* ***********************
  * Routes
  *************************/
-// Use the routes
-app.use('/api', inventoryRoute); // Inventory API
-app.use('/motors', motorsRoutes); // Motors routes
-app.use('/', customRoutes); // Custom routes
-app.use('/', sedanRoutes); // Sedan routes
-app.use('/', suvRoutes); // SUV routes
-app.use('/', truckRoutes); // truck routes
+// Other middleware and configurations...
 
+// Use the centralized router
+app.use(mainRoutes);
+
+// Start your server
 // Basic homepage route
 app.get('/', (req, res) => {
   res.render("index", { title: "Home" });
