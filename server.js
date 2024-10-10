@@ -48,7 +48,7 @@ app.get('/inventory', async (req, res) => {
 });
 
 // Custom Route - Display sedan-specific items
-app.get('/inventory/sedans', async (req, res) => {
+app.get('/inventory/custom', async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM inventory WHERE category = 'Custom'");
     const custom = result.rows;
