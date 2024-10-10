@@ -91,11 +91,14 @@ app.get('/inventory/trucks', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+/* **********************************
+ * View Egine and temperate Area
+*************************************/
 
-/* ***********************
+/* **********************************
  * Local Server Information
  * Values from .env (environment) file
- *************************/
+ ************************************/
 const port = process.env.PORT || 5500; // Fallback port if not defined
 const host = process.env.HOST || 'localhost'; // Fallback host if not defined
 /* ***********************
