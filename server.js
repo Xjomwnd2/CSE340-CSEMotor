@@ -107,9 +107,10 @@ app.get('/inventory/electric', async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`CSE340 Motors app running on port ${port}`);
-});
 
-module.exports = app;
+/* ***********************
+ * Log statement to confirm server operation
+ *************************/
+app.listen(port, () => {
+  console.log(`App listening on ${host}:${port}`);
+});
