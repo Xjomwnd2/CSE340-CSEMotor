@@ -11,6 +11,7 @@ const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
 const path = require('path');
 const app = express();
+const mainRoutes = require('./routes/mainRoutes'); 
 
 //Navigation
 // Define your navigation items
