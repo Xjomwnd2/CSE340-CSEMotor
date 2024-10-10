@@ -1,4 +1,9 @@
-/* ******************************************
+/* ****************************************
+Account Controller
+* Unit 4, deliver login view activity 
+************************************** */
+const utilities = require('../utilities');
+/******************************************
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
@@ -10,13 +15,6 @@ const pool = require('./database/')
 /* ****************************************
 *  Deliver login view
 * *************************************** */
-async function buildLogin(req, res, next) {
-  let nav = await utilities.getNav()
-  res.render("account/login", {
-    title: "Login",
-    nav,
-  })
-}
 
 module.exports = { buildLogin }
 // Import required modules
