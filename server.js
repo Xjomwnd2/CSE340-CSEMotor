@@ -31,6 +31,16 @@ app.set("layout", "./layouts/layout");
 app.use(static);
 /* ***************** */
 ///
+
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Your routes (dynamic or static) go here
+app.get('/', (req, res) => {
+    res.send('Welcome to the Motors App');
+});
+
+///
 app.use(express.static(path.join(__dirname, 'public')));
 ///
 // Index route
