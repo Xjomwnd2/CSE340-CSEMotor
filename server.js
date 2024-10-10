@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
  * Local Server Information
  * Values from .env (environment) file
  *************************/
-const port = process.env.PORT || 3000; // Fallback port if not defined
+const port = process.env.PORT || 5500; // Fallback port if not defined
 const host = process.env.HOST || 'localhost'; // Fallback host if not defined
 
 /* ***********************
