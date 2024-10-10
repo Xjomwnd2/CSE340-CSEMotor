@@ -43,12 +43,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* ***********************
  * Routes
  *************************/
-// Other middleware and configurations...
-
 // Use the centralized router
 app.use(mainRoutes);
-
-// Start your server
 // Basic homepage route
 app.get('/', (req, res) => {
   res.render("index", { title: "Home" });
