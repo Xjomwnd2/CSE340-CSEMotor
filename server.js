@@ -22,11 +22,9 @@ const navItems = [
   { name: 'Trucks', link: '/trucks' }
 ];
 
-app.set('view engine', 'ejs');
-
-app.get('/', (req, res) => {
-  res.render('home', { navItems });
-});
+app.set("view engine", "ejs")
+app.use(expressLayouts)
+app.set("layout", "./layouts/layout") // not at views root
 
 // Route and controller imports
 const baseController = require("./controllers/baseController");
