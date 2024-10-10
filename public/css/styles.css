@@ -19,7 +19,7 @@ body {
 * Navigation Bar CSS
 * ************************************ */
 header {
-width: 80%;
+width: 100%;
 background-color: #333; /* Change to your desired background color */
 position: fixed; /* Fix the header in place */
 top: 0; /* Align at the top of the page */
@@ -90,7 +90,7 @@ transform: translateY(-5px); /* Lift the item slightly on hover */
 }
 /* Styles for the vehicle image */
 #inv-display li img {
-max-width: 80%;
+max-width: 100%;
 height: auto;
 display: block; /* Ensures proper spacing around the image */
 margin-bottom: 15px;
