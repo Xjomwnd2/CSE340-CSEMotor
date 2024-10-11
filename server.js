@@ -174,7 +174,10 @@ app.use((req, res, next) => {
   next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
 });
 
-// Log statement to confirm server operation
+/* **********************************
+ * Local Server Information
+ * Values from .env (environment) file
+ ************************************/
 const port = process.env.PORT || 5500; // Fallback port if not defined
 const host = process.env.HOST || 'localhost'; // Fallback host if not defined
 app.listen(port, () => {
