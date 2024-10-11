@@ -47,9 +47,7 @@ app.get('/', (req, res) => {
   res.send('Session is working!');
 });
 ////////////////10000//////////////////////////////
-app.listen(10000, () => {
-  console.log('App listening on localhost:10000');
-});
+
 /////////////////////////////////////*/
 // Middleware to parse JSON bodies
 app.use(express.json());
