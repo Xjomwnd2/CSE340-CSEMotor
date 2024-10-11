@@ -118,6 +118,7 @@ text-align: center;
 font-style: italic;
 color: #999;
 }
+/* ///////////////////////////////////////// */
 /* Media Queries to ensure responsiveness */
 @media (max-width: 768px) {
 nav {
@@ -127,6 +128,41 @@ nav {
   grid-template-columns: 1fr; /* Stack grid items on small screens */
 }
 }
+/* /////////////////////////////// */
+/* Base styles for both small and large screens */
+.container {
+  display: flex;
+  flex-direction: column; /* Default is stacked vertically (for small screens) */
+  align-items: center;
+  margin: 20px;
+  gap: 20px;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+}
+
+.content {
+  max-width: 600px;
+  text-align: left;
+}
+
+/* Media query for large screens (side-by-side layout) */
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row; /* Changes layout to side-by-side */
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+  }
+
+  .image {
+    max-width: 50%; /* Adjust the size of the image */
+  }
+
+  .content {
+    max-width: 50%; /* Adjust the size of the content */
+  }
 /*///////////////////////////*/
 header {
   background-color: #333;
