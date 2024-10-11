@@ -17,6 +17,14 @@ const utilities = require('./utilities/utilities'); // Adjust the path as needed
 // Initialize express app
 const app = express();
 
+// Define port, either from environment or default to 10000
+
+
+// Define your routes, middleware, etc.
+// Example:
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 // Set up the connection pool for PostgreSQL
 // Comment this out if you are using the pool from your database module
 /* const pool = new Pool({
