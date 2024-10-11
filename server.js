@@ -27,6 +27,22 @@ const app = express();
   port: 5432,             // PostgreSQL port
 }); */
 
+// Set up session middleware
+app.use(session({
+  secret: 'yourSecretKey', // Replace with your own secret key
+  resave: false, // Set to true if you want to force the session to be saved back to the store
+  saveUninitialized: true, // Save uninitialized sessions
+  cookie: { secure: false } // If you're not using HTTPS, set secure to false
+}));
+
+app.get('/', (req, res) => {
+  res.send('Session is working!');
+});
+
+app.listen(10000, () => {
+  console.log('App listening on localhost:10000');
+});
+
 // Middleware to parse JSON bodies
 app.use(express.json());
 app.use(bodyParser.json());
