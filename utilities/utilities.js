@@ -6,4 +6,13 @@ function exampleUtilityFunction() {
   module.exports = {
     exampleUtilityFunction,
   };
-  
+  // utilities.js
+
+function getNav() {
+  // Your logic here
+}
+
+module.exports = {
+  getNav,
+  // other exports
+};
