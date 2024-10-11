@@ -182,3 +182,4 @@ const host = process.env.HOST || 'localhost'; // Fallback host if not defined
 app.listen(port, () => {
   console.log(`App listening on ${host}:${port}`);
 });
+// Only one listen call to use port 5500
