@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory - CSE Motors</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Vehicle Inventory</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/inventory">Inventory</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="inventory-list">
+      <h2>Available Vehicles</h2>
+      <ul>
+        <% Object.keys(vehicles).forEach(id => { %>
+          <li>
+            <a href="/vehicle/<%= id %>"><%= vehicles[id].name %></a> - <%= vehicles[id].price %>
+          </li>
+        <% }); %>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 CSE Motors. All rights reserved.</p>
+  </footer>
+</body>
+</html>
