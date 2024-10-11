@@ -102,3 +102,23 @@ Util.handleErrors = (fn) => (req, res, next) =>
   Promise.resolve(fn(req, res, next)).catch(next);
 
 module.exports = Util;
+
+/* *********************************************************
+ * Build a custom function in the utilities > index.js file
+ ********************************************************* */
+// Utility function to generate HTML for vehicle detail view
+function renderVehicleHtml(vehicleData) {
+  return `
+    <h1>${vehicleData.year} ${vehicleData.make} ${vehicleData.model}</h1>
+    <img src="${vehicleData.image_full}" alt="${vehicleData.make} ${vehicleData.model}">
+    <p><strong>Price:</strong> $${vehicleData.price.toLocaleString()}</p>
+    <p><strong>Mileage:</strong> ${vehicleData.mileage.toLocaleString()} miles</p>
+    <p><strong>Color:</strong> ${vehicleData.color}</p>
+    <p><strong>Description:</strong> ${vehicleData.description}</p>
+  `;
+}
+
+module.exports = { renderVehicleHtml };
+
+
+
