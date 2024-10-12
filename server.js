@@ -81,6 +81,20 @@ app.use(session({
   name: 'sessionId',
 }));
 
+/* ************************************************
+Validation Middleware
+************************************************* */
+// In validation.js (middleware)
+const { check } = require('express-validator');
+// Middleware to validate the classification name (no spaces or special characters)
+exports.checkClassificationData = [
+  check('classificationName')
+    .trim()
+    .matches(/^[a-zA-Z0-9]+$/)
+    .withMessage('Classification name must not contain spaces or special characters'),
+];
+/////////////////////////////////////////////////////////////////
+
 // Sample route
 app.get('/', (req, res) => {
   res.render('index', { title: 'CSE340 Motors Home' });
