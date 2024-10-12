@@ -6,6 +6,7 @@
 require('dotenv').config(); // Load environment variables
 const express = require('express');
 const session = require('express-session');
+const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');  // PostgreSQL module
 const path = require('path');
@@ -47,7 +48,15 @@ app.get('/', (req, res) => {
   res.send('Session is working!');
 });
 ////////////////10000//////////////////////////////
+// Flash middleware
+app.use(flash());
 
+// Middleware to make flash messages available in views
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  next();
+});
 /////////////////////////////////////*/
 // Middleware to parse JSON bodies
 app.use(express.json());
