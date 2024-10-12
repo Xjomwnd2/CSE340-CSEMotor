@@ -28,3 +28,15 @@ async function getInventoryByClassificationId(classification_id) {
 }
 
 module.exports = { getClassifications, getInventoryByClassificationId };
+
+/* **********************************************************************************
+ *  This model will handle the insertion of the new classification into the database
+ * ******************************************************************************** */
+// In inventoryModel.js
+const db = require('../database/connection'); // Your database connection
+
+// Function to insert classification into the database
+exports.insertClassification = async (classificationName) => {
+  const sql = 'INSERT INTO classifications (classification_name) VALUES (?)';
+  return db.query(sql, [classificationName]);
+};
