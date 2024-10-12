@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management</title>
+  <link rel="stylesheet" href="/path/to/your/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Inventory Management</h1>
+  </header>
+
+  <!-- Flash message section -->
+  <% if (flashMessage) { %>
+    <div class="flash-message">
+      <p><%= flashMessage %></p>
+    </div>
+  <% } %>
+
+  <main>
+    <p>Welcome to the Inventory Management page. From here, you can manage classifications and inventory.</p>
+    
+    <!-- Links to other views, note the use of routes -->
+    <ul>
+      <li><a href="/inv/add-classification">Add New Classification</a></li>
+      <li><a href="/inv/add-inventory">Add New Inventory</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Your Company</p>
+  </footer>
+</body>
+</html>
