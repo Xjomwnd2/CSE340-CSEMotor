@@ -149,52 +149,7 @@ body {
 }
 /* ////////////////////////////////////////////////////////////// */
 /* Features Section */
-.features {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 40px;
-}
 
-.feature {
-  font-size: 24px;
-  background-color: #333;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  width: 30%;
-  transition: transform 0.3s ease;
-}
-
-.feature:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
-  background-color: #555;
-}
-
-/* Own Today Section */
-.own-today {
-  margin-top: 40px;
-}
-
-.own-today h2 {
-  font-size: 36px;
-  color: #ff4500; /* Bright orange for attention */
-  margin-bottom: 20px;
-}
-
-.buy-now {
-  font-size: 20px;
-  padding: 15px 30px;
-  background-color: #00bfff;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.buy-now:hover {
-  background-color: #0080ff; /* Darker blue on hover */
-}
 /* ************ Upgrades & Reviews ************ */
 .upgrades img {
   width: 100px;
