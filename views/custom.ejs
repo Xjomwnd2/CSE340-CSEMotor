@@ -9,43 +9,83 @@
 </head>
 <body>
     <header>
-        <h1>Welcome to CSE340 Motors</h1>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/motors/custom">Custom</a></li>
+                <li><a href="/motors/sedan">Sedan</a></li>
+                <li><a href="/motors/suv">SUV</a></li>
+                <li><a href="/motors/trucks">Trucks</a></li>
             </ul>
-        </nav>
+        </nav> 
     </header>
-
+    <div class="header">
+        <div class="new-motors">New Motors</div>
+        <div class="my-account">My Account</div>
+    </div>
     <main>
-        <section>
-            <h2>Motor Specifications</h2>
+ <!-- Welcome Section -->
+    <h1>Welcome to CSE Motors</h1>
+    <div id="hero">
+        <img src="/images/vehicles/delorean.jpg" alt="DMC Delorean"/> 
+    </div>
+    <div class="delorean-container">
+        <div class="delorean-details">
+            <h2>DMC Delorean</h2>
             <ul>
-                <li>Motor Type: <%= motorType %></li>
-                <li>Horsepower: <%= horsepower %> HP</li>
-                <li>Torque: <%= torque %> Nm</li>
-                <li>Weight: <%= weight %> kg</li>
-                <li>Efficiency: <%= efficiency %>%</li>
+                <li>3 Cup holders</li>
+                <li>Superman doors</li>
+                <li>Fuzzy dice!</li>
             </ul>
-        </section>
+            <button aria-label="Purchase DMC Delorean">Own Today</button>
+        </div>
+    </div>
+</div>
 
-        <section>
-            <h2>User Feedback</h2>
-            <form action="/feedback" method="POST">
-                <label for="username">Name:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="comment">Comment:</label>
-                <textarea id="comment" name="comment" required></textarea>
-                <button type="submit">Submit Feedback</button>
-            </form>
-        </section>
-    </main>
+<!-- Upgrades and Reviews -->
+<div>
+    <h3>Delorean Upgrades</h3>
+    <div class="upgrades-reviews">
+        <!-- Delorean Upgrades -->
+        <div class="upgrades">
+            <div>
+                <img src="/images/upgrades/flux-cap.png" alt="Flux Capacitor upgrade" />
+                <a href="#">Flux Capacitor</a>
+            </div>
+            <div>
+                <img src="/images/upgrades/flame.jpg" alt="Flame Decals upgrade" />
+                <a href="#">Flame Decals</a>
+            </div>
+            <div>
+                <img src="/images/upgrades/bumper_sticker.jpg" alt="Bumper Stickers upgrade" />
+                <a href="#">Bumper Stickers</a>
+            </div>
+            <div>
+                <img src="/images/upgrades/hub-cap.jpg" alt="Hub Caps upgrade" />
+                <a href="#">Hub Caps</a>
+            </div>
+        </div>
 
-    <footer>
-        <p>&copy; 2024 CSE340 Motors. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+        <!-- Delorean Reviews -->
+        <div class="reviews">
+            <h3>DMC Delorean Reviews</h3>
+            <ul>
+                <li>“So fast it's almost like traveling in time.” (4/5)</li>
+                <li>“Coolest ride on the road.” (4/5)</li>
+                <li>“I’m feeling McFly!” (5/5)</li>
+                <li>“The most futuristic ride of our day.” (4.5/5)</li>
+                <li>“80’s livin and I love it!” (5/5)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <p>&copy; 2024 CSE340 Motors</p>
+</footer>
+<!-- Link to the custom.js file -->
+<script src="script.js"></script>
 </body>
 </html>
