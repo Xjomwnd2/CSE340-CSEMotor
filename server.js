@@ -22,10 +22,7 @@ const app = express();
 
 
 // Define your routes, middleware, etc.
-// Example:
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+
 // Set up the connection pool for PostgreSQL
 // Comment this out if you are using the pool from your database module
 /* const pool = new Pool({
@@ -48,9 +45,7 @@ app.get('/', (req, res) => {
   res.send('Session is working!');
 });
 ////////////////10000//////////////////////////////
-app.listen(10000, () => {
-  console.log('App listening on localhost:10000');
-});
+
 //////////////////////////////////////////////////
 // Flash middleware
 app.use(flash());
