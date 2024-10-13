@@ -132,21 +132,6 @@ app.get('/inventory/custom', async (req, res) => {
   }
 });
 
-app.get('/custom', (req, res) => {
-  // Sample dynamic data for the motor
-  const motorData = {
-      motorType: "DC Motor",
-      horsepower: 5,
-      torque: 20,
-      weight: 15,
-      efficiency: 85 // in percentage
-  };
-
-  // Render the custom.ejs file with the motor data
-  res.render('custom', motorData);
-});
-
-
 // Sedan Route - Display sedan-specific items
 app.get('/inventory/sedan', async (req, res) => {
   try {
