@@ -119,6 +119,18 @@ app.get('/inventory', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+//////////////////////////////////////////////////////////////////////
+app.get('/your-route', (req, res) => {
+  const title = "DMC Delorean"; // Or retrieve this from a database or other source
+  const custom = [
+      { model: "DMC-12", price: "$29,999" },
+      { model: "DMC-12 Special Edition", price: "$34,999" }
+  ];
+  res.render('view', { title, custom });
+});
+
+
+//////////////////////////////////////////////////////////////////////
 
 // Custom Route - Display custom items
 app.get('/inventory/custom', async (req, res) => {
