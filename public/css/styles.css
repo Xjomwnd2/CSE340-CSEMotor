@@ -16,6 +16,7 @@ body {
 }
 /* /////////////////////////////////////////////////// */
 /* Header */
+/* Header */
 header {
   position: fixed;
   top: 0;
@@ -25,10 +26,9 @@ header {
   color: white;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;  /* Align elements to left and right */
+  justify-content: space-between;  /* Space between New Motors and My Account */
   align-items: center;
   padding: 10px 20px;
-  margin: auto;
 }
 
 /* New Motors Button (Left End) */
@@ -54,12 +54,12 @@ header {
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none; /* Remove underline */
+  margin-left: auto; /* Push it to the right */
 }
 .my-account:hover {
   background-color: #555;  /* Darker on hover */
   cursor: pointer;
 }
-
 /* Optional - Centered Navigation */
 nav {
   flex-grow: 1;
