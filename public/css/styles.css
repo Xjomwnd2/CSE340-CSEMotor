@@ -215,10 +215,6 @@ body {
   color: #333; /* Dark text color */
   font-size: 1rem; /* Regular font size for links */
 }
-.upgrades a:hover {
-  color: #007acc; /* Change link color on hover */
-}
-
 
 /* ************ Main Content ************ */
 main {
