@@ -226,6 +226,21 @@ main {
   max-height: 85vh;
   overflow-y: scroll;
 }
+main img {
+  max-width: 100%;
+}
+
+.container {
+  position: relative;
+}
+
+.container h2 {
+  color: #4c96d7;
+}
+
+.container p {
+  color: #4c96d7;
+}
 
 .button {
   padding: 10px;
@@ -235,7 +250,6 @@ main {
   background-color: #4c96d7;
   text-decoration: none;
 }
-
 /* ************ Footer ************ */
 footer {
   background-color: #1a1a1a;
