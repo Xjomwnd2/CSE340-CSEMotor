@@ -40,10 +40,8 @@ app.use(session({
   saveUninitialized: true, // Save uninitialized sessions
   cookie: { secure: false } // If you're not using HTTPS, set secure to false
 }));
+////////////////////session is working/////////////////
 
-app.get('/', (req, res) => {
-  res.send('Session is working!');
-});
 ////////////////10000//////////////////////////////
 
 //////////////////////////////////////////////////
