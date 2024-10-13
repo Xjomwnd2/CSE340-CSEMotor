@@ -252,6 +252,14 @@ main img {
 }
 /* *****************************************DORELEAN******************** */
 /* Own Today Section */
+.delorean-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.delorean-container img {
+  width: 300px;
+
 .delorean-details {
   text-align: left;
 }
