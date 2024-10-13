@@ -15,23 +15,22 @@ body {
   padding-top: 60px; /* Prevent header overlap */
 }
 /* /////////////////////////////////////////////////// */
-/* Header */
-/* Header */
+/* General Header Styling */
 header {
+  display: flex;
+  justify-content: space-between;  /* Space between left and right elements */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #333;
-  color: white;
   z-index: 1000;
-  display: flex;
-  justify-content: space-between;  /* Space between New Motors and My Account */
-  align-items: center;
-  padding: 10px 20px;
 }
 
-/* New Motors Button (Left End) */
+/* New Motors Button (Left) */
 .new-motors {
   font-size: 24px;
   font-weight: bold;
@@ -42,40 +41,25 @@ header {
   text-decoration: none; /* Remove underline */
 }
 .new-motors:hover {
-  background-color: #555;  /* Darker on hover */
+  background-color: #555; /* Hover effect */
   cursor: pointer;
 }
 
-/* My Account Button (Right End) */
-.my-account {
-  font-size: 16px;
-  color: white;
-  background-color: #444;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none; /* Remove underline */
-  margin-left: auto; /* Push it to the right */
-}
-.my-account:hover {
-  background-color: #555;  /* Darker on hover */
-  cursor: pointer;
-}
-/* Optional - Centered Navigation */
+/* Navigation Menu (Center) */
 nav {
-  flex-grow: 1;
-  text-align: center;  /* Center the navigation menu */
-  margin: 0 20px;
+  flex-grow: 1; /* Allow the nav to grow and take up remaining space */
+  text-align: center;
 }
 
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: inline-flex;  /* Horizontal layout */
+  display: inline-flex; /* Horizontal alignment */
 }
 
 nav ul li {
-  margin: 0 15px;  /* Spacing between links */
+  margin: 0 15px; /* Spacing between items */
 }
 
 nav ul li a {
@@ -88,7 +72,21 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background-color: #555;  /* Hover effect for navigation */
+  background-color: #555; /* Hover effect for nav links */
+}
+
+/* My Account Button (Right) */
+.my-account {
+  font-size: 16px;
+  color: white;
+  background-color: #444;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none; /* Remove underline */
+}
+.my-account:hover {
+  background-color: #555; /* Hover effect */
+  cursor: pointer;
 }
 
 /*/////////////////////////////////////////////////////// */
