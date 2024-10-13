@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE340 Motors Custom Response</title>
+    <link rel="stylesheet" href="/public/css/normalize-min.css"> <!-- Optional CSS -->
+    <link rel="stylesheet" href="/public/css/styles.css"> <!-- Optional CSS -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to CSE340 Motors</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Motor Specifications</h2>
+            <ul>
+                <li>Motor Type: <%= motorType %></li>
+                <li>Horsepower: <%= horsepower %> HP</li>
+                <li>Torque: <%= torque %> Nm</li>
+                <li>Weight: <%= weight %> kg</li>
+                <li>Efficiency: <%= efficiency %>%</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>User Feedback</h2>
+            <form action="/feedback" method="POST">
+                <label for="username">Name:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="comment">Comment:</label>
+                <textarea id="comment" name="comment" required></textarea>
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 CSE340 Motors. All rights reserved.</p>
+    </footer>
+</body>
+</html>
