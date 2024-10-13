@@ -14,39 +14,55 @@ body {
   color: #333;
   padding-top: 60px; /* Prevent header overlap */
 }
-
-/* ************ Header & Navigation ************ */
+* Header */
 header {
-  background-color: #333;
-  padding: 20px;
-  position: fixed;
+  display: flex;              /* Use flexbox for horizontal layout */
+  justify-content: space-between; /* Space elements evenly */
+  align-items: center;         /* Center elements vertically */
+  padding: 20px;               /* Add some padding */
+  background-color: #333;      /* Background color */
+  color: white;                /* Text color */
+  position: fixed;             /* Fix the header at the top */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  z-index: 1000;               /* Ensure it stays above other content */
 }
 
 header nav {
-  display: flex;
-  gap: 30px;
+  display: flex;               /* Make the navigation links horizontal */
+  gap: 30px;                   /* Spacing between the nav items */
 }
 
-header nav a,
-header .account {
-  color: white;
+header nav a {
+  color: white;                /* Text color for nav links */
   text-decoration: none;
-  padding: 10px 15px;
-  background-color: #444;
+  padding: 10px 15px;          /* Padding for nav links */
+  background-color: #444;      /* Background for nav links */
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
-header nav a:hover,
+header nav a:hover {
+  background-color: #555;      /* Hover effect */
+}
+
+header .account {
+  color: white;
+  background-color: #444;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
 header .account:hover {
-  background-color: #555;
+  background-color: #555;      /* Hover effect */
+}
+
+/* Add padding to body to avoid overlapping with the fixed header */
+body {
+  padding-top: 80px;           /* Adjust depending on your header height */
 }
 
 /* ************ Navigation Bar ************ */
