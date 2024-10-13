@@ -251,43 +251,20 @@ main img {
   text-decoration: none;
 }
 /* *****************************************DORELEAN******************** */
-/* Container for Image and Content */
-.container {
-  display: flex;
-  align-items: flex-start; /* Align items to the top */
-}
-
-/* Vehicle Image */
-.vehicle-image {
-  width: 50%; /* Adjust size as necessary */
-  max-width: 600px; /* Max width for the image */
-  margin-right: 20px; /* Space between image and features */
-}
-
-/* Features Section */
-.features {
-  display: flex;
-  flex-direction: column; /* Stack features vertically */
-  justify-content: center;
-  width: 50%; /* Adjust width as necessary */
-}
-
-.feature {
-  font-size: 24px;
-  background-color: #333;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  margin-bottom: 10px; /* Space between features */
-  transition: transform 0.3s ease;
-}
-
-.feature:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
-  background-color: #555;
-}
-
 /* Own Today Section */
+.delorean-details {
+  text-align: left;
+}
+.delorean-details h2 {
+  color: #00f;
+}
+button {
+  background-color: #00f;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
 .own-today {
   margin-top: 20px;
 }
@@ -296,21 +273,6 @@ main img {
   font-size: 36px;
   color: #ff4500; /* Bright orange for attention */
   margin-bottom: 20px;
-}
-
-.buy-now {
-  font-size: 20px;
-  padding: 15px 30px;
-  background-color: #00bfff;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.buy-now:hover {
-  background-color: #0080ff; /* Darker blue on hover */
 }
 /* ************ Footer ************ */
 footer {
