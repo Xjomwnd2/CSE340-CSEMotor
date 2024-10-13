@@ -258,6 +258,9 @@ main img {
 .delorean-details h2 {
   color: #00f;
 }
+div {
+  margin: 20px; /* Example of setting a margin */
+}
 button {
   background-color: #00f;
   color: white;
