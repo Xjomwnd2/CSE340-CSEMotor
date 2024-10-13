@@ -149,13 +149,6 @@ body {
 }
 
 /* ************ Upgrades & Reviews ************ */
-.upgrades,
-.upgrades-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
 .upgrades img {
   width: 100px;
   height: auto;
