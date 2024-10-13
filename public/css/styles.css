@@ -25,71 +25,70 @@ header {
   color: white;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  /* Align elements to left and right */
   align-items: center;
   padding: 10px 20px;
 }
 
-/* New Motors Button (Left) */
+/* New Motors Button (Left End) */
 .new-motors {
   font-size: 24px;
   font-weight: bold;
-  background-color: #555;
   color: white;
+  background-color: #444;
   padding: 10px 20px;
   border-radius: 5px;
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
 }
 .new-motors:hover {
-  background-color: #666;
+  background-color: #555;  /* Darker on hover */
   cursor: pointer;
 }
 
-/* My Account Button (Right) */
+/* My Account Button (Right End) */
 .my-account {
   font-size: 16px;
-  background-color: #555;
   color: white;
+  background-color: #444;
   padding: 10px 20px;
   border-radius: 5px;
-  text-decoration: none;
+  text-decoration: none; /* Remove underline */
 }
 .my-account:hover {
-  background-color: #666;
+  background-color: #555;  /* Darker on hover */
   cursor: pointer;
 }
 
-/* Navigation Menu (Centered) */
+/* Optional - Centered Navigation */
 nav {
   flex-grow: 1;
-  text-align: center;  /* Center align the navigation */
+  text-align: center;  /* Center the navigation menu */
+  margin: 0 20px;
 }
 
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: inline-flex;  /* Inline flex to align items in a row */
-  justify-content: center;
+  display: inline-flex;  /* Horizontal layout */
 }
 
 nav ul li {
-  margin: 0 15px;  /* Space between navigation items */
+  margin: 0 15px;  /* Spacing between links */
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
   padding: 10px 15px;
-  background-color: #444;
   border-radius: 5px;
+  background-color: #444;
   transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
-  background-color: #555;
+  background-color: #555;  /* Hover effect for navigation */
 }
-
 
 /*/////////////////////////////////////////////////////// */
 /* Main Content */
