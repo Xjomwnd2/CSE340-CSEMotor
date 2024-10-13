@@ -16,132 +16,56 @@ body {
 }
 /* /////////////////////////////////////////////////// */
 /* Header */
-/* Header */
+/* Code for the header */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #333;
-  color: white;
-  z-index: 1000;
+  padding: 20px;
 }
 
-/* Header Container */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #444;
+header img {
+  display: block;
+  float: left;
 }
 
-/* New Motors and My Account */
-.new-motors {
-  font-size: 24px;
-  font-weight: bold;
-  margin-right: auto; /* Align to the far left */
+header p {
+  float: right;
 }
 
-.my-account {
-  font-size: 16px;
-  background-color: #555;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-left: auto; /* Align to the far right */
-}
-.my-account:hover {
-  background-color: #666;
-  cursor: pointer;
+.name-label {
+  font-size: 0.6em;
+  clear: both;
+  float: right;
 }
 
-/* Navigation Menu */
+/* Code for the navigation */
 nav {
-  background-color: #222;
-  flex-grow: 1; /* This makes the navigation menu grow and take available space */
-  text-align: center; /* Center aligns the text in the nav */
+  clear: both;
+  font-size: 0.5em;
 }
 
 nav ul {
   display: flex;
-  justify-content: center;
+  background-color: #3a3a3a;
   list-style-type: none;
-  padding: 10px 0;
-}
-
-nav ul li {
-  margin: 0 20px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  background-color: #444;
-  transition: background-color 0.3s ease;
-}
-
-nav ul li a:hover {
-  background-color: #555;
-}
-
-/* Style for the entire header */
-#top-header {
-  background-color: #333;  /* Dark background for the header */
-  color: #fff;  /* White text color */
-  padding: 20px;  /* Padding around the content */
-  display: flex;  /* Flexbox layout for easy alignment */
-  justify-content: space-between;  /* Space out the content */
-  align-items: center;  /* Align items vertically in the center */
-}
-
-/* Style for the site name (logo/link) */
-.siteName a {
-  font-size: 24px;  /* Larger font size for the site name */
-  font-weight: bold;  /* Make it bold */
-  color: #fff;  /* White text color */
-  text-decoration: none;  /* Remove the underline */
-}
-
-.siteName a:hover {
-  text-decoration: underline;  /* Add underline on hover */
-}
-
-/* Style for the tools section (My Account link) */
-#tools a {
-  color: #fff;  /* White text color */
-  text-decoration: none;  /* Remove underline */
-  margin-right: 20px;  /* Add some space to the right */
-}
-
-#tools a:hover {
-  text-decoration: underline;  /* Underline on hover */
-}
-
-/* Style for the navigation menu */
-nav ul {
-  list-style: none;  /* Remove bullet points */
   margin: 0;
   padding: 0;
-  display: flex;  /* Horizontal layout for the list items */
+  overflow: hidden;
 }
 
-nav ul li {
-  margin-left: 20px;  /* Space between menu items */
+nav li {
+  display: inline;
 }
 
-nav ul li a {
-  color: #fff;  /* White text color */
-  text-decoration: none;  /* Remove underline */
-  font-size: 18px;  /* Adjust font size */
-  padding: 10px;  /* Add some padding for a clickable area */
-  border-radius: 5px;  /* Slight rounding on the corners */
+nav li a {
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-nav ul li a:hover {
-  background-color: #555;  /* Change background on hover */
-  color: #ddd;  /* Change text color on hover */
+nav li a:hover {
+  background-color: #4c96d7;
+  color: #3a3a3a;
 }
 
 /*/////////////////////////////////////////////////////// */
