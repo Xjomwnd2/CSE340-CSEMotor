@@ -16,6 +16,7 @@ body {
 }
 /* /////////////////////////////////////////////////// */
 /* Header */
+/* Header */
 header {
   position: fixed;
   top: 0;
@@ -25,6 +26,7 @@ header {
   color: white;
   z-index: 1000;
 }
+
 /* Header Container */
 .header {
   display: flex;
@@ -33,34 +35,44 @@ header {
   padding: 10px;
   background-color: #444;
 }
+
 /* New Motors and My Account */
 .new-motors {
   font-size: 24px;
   font-weight: bold;
+  margin-right: auto; /* Align to the far left */
 }
+
 .my-account {
   font-size: 16px;
   background-color: #555;
   padding: 10px 20px;
   border-radius: 5px;
+  margin-left: auto; /* Align to the far right */
 }
 .my-account:hover {
   background-color: #666;
   cursor: pointer;
 }
+
 /* Navigation Menu */
 nav {
   background-color: #222;
+  flex-grow: 1; /* This makes the navigation menu grow and take available space */
+  text-align: center; /* Center aligns the text in the nav */
 }
+
 nav ul {
   display: flex;
   justify-content: center;
   list-style-type: none;
   padding: 10px 0;
 }
+
 nav ul li {
   margin: 0 20px;
 }
+
 nav ul li a {
   color: white;
   text-decoration: none;
@@ -69,6 +81,7 @@ nav ul li a {
   background-color: #444;
   transition: background-color 0.3s ease;
 }
+
 nav ul li a:hover {
   background-color: #555;
 }
