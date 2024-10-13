@@ -227,6 +227,15 @@ main {
   overflow-y: scroll;
 }
 
+.button {
+  padding: 10px;
+  text-align: center;
+  max-width: 80%;
+  color: #ffffff;
+  background-color: #4c96d7;
+  text-decoration: none;
+}
+
 /* ************ Footer ************ */
 footer {
   background-color: #1a1a1a;
