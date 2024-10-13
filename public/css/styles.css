@@ -28,6 +28,7 @@ header {
   justify-content: space-between;  /* Align elements to left and right */
   align-items: center;
   padding: 10px 20px;
+  margin: auto;
 }
 
 /* New Motors Button (Left End) */
