@@ -14,73 +14,82 @@ body {
   color: #333;
   padding-top: 60px; /* Prevent header overlap */
 }
-* Header */
+/* Header */
+/* Header */
 header {
-  display: flex;              /* Use flexbox for horizontal layout */
-  justify-content: space-between; /* Space elements evenly */
-  align-items: center;         /* Center elements vertically */
-  padding: 20px;               /* Add some padding */
-  background-color: #333;      /* Background color */
-  color: white;                /* Text color */
-  position: fixed;             /* Fix the header at the top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;               /* Ensure it stays above other content */
-}
-
-header nav {
-  display: flex;               /* Make the navigation links horizontal */
-  gap: 30px;                   /* Spacing between the nav items */
-}
-
-header nav a {
-  color: white;                /* Text color for nav links */
-  text-decoration: none;
-  padding: 10px 15px;          /* Padding for nav links */
-  background-color: #444;      /* Background for nav links */
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-header nav a:hover {
-  background-color: #555;      /* Hover effect */
-}
-
-header .account {
+  background-color: #333;
   color: white;
+  z-index: 1000;
+}
+
+/* Header Container */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
   background-color: #444;
+}
+
+/* New Motors and My Account */
+.new-motors {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.my-account {
+  font-size: 16px;
+  background-color: #555;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.my-account:hover {
+  background-color: #666;
+  cursor: pointer;
+}
+
+/* Navigation Menu */
+nav {
+  background-color: #222;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 10px 0;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
   padding: 10px 15px;
   border-radius: 5px;
-  text-decoration: none;
+  background-color: #444;
   transition: background-color 0.3s ease;
 }
 
-header .account:hover {
-  background-color: #555;      /* Hover effect */
+nav ul li a:hover {
+  background-color: #555;
 }
 
-/* Add padding to body to avoid overlapping with the fixed header */
+/* Main Content */
+main {
+  padding: 20px;
+}
+
+/* Add padding to avoid content overlap with the fixed header */
 body {
-  padding-top: 80px;           /* Adjust depending on your header height */
-}
-
-/* ************ Navigation Bar ************ */
-nav {
-  display: flex;
-  justify-content: space-around;
-  padding: 15px;
-}
-
-nav a {
-  color: #5e5959;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-nav a:hover {
-  background-color: #5e5959;
+  padding-top: 100px;
 }
 
 /* ************ Grid and Flex Layout ************ */
