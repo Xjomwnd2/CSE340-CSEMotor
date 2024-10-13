@@ -39,6 +39,7 @@ header {
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none; /* Remove underline */
+  float: left;
 }
 .new-motors:hover {
   background-color: #555; /* Hover effect */
@@ -83,6 +84,7 @@ nav ul li a:hover {
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none; /* Remove underline */
+  float: right;
 }
 .my-account:hover {
   background-color: #555; /* Hover effect */
