@@ -191,6 +191,34 @@ body {
   color: gold;
   font-size: 16px;
 }
+/* //////////////////////////////////////////////*/
+/* Delorean Upgrades and Reviews section */
+/* Upgrades section */
+.upgrades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+  gap: 20px; /* Space between each upgrade item */
+}
+.upgrades div {
+  background-color: #00aaff; /* Blue background for upgrade items */
+  padding: 20px; /* Padding inside the divs */
+  text-align: center; /* Center align text and images */
+  border-radius: 5px; /* Rounded corners */
+}
+.upgrades img {
+  width: auto; /* Image size */
+  height: auto; /* Keep aspect ratio */
+  margin-bottom: 10px; /* Space between image and text */
+}
+.upgrades a {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Dark text color */
+  font-size: 1rem; /* Regular font size for links */
+}
+.upgrades a:hover {
+  color: #007acc; /* Change link color on hover */
+}
+
 
 /* ************ Main Content ************ */
 main {
