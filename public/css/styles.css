@@ -56,7 +56,7 @@ header {
 
 /* Hover Effects */
 .new-motors:hover, .my-account:hover {
-  background-color: #555;
+  background-color: #f0ebeb;
   cursor: pointer;
 }
 /* Navigation Menu (Center) */
