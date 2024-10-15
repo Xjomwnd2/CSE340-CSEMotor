@@ -2,7 +2,6 @@
  * This server.js file is the primary file of the 
  * application. It is used to control the project.
  *******************************************/
-
 require('dotenv').config(); // Load environment variables
 const express = require('express');
 const session = require('express-session');
@@ -21,7 +20,6 @@ const pool = new Pool({
   password: 'your_password',
   port: 5432,
 });
-
 app.use(session({
   store: new pgSession({
     pool: pool,                // Connection pool
@@ -32,19 +30,9 @@ app.use(session({
   saveUninitialized: false,
   cookie: { secure: false }  // Set to true if using HTTPS
 }));
-// Initialize express app
-const app = express();
-// Set up the session middleware before other routes or middleware
-app.use(session({
-  secret: 'your-secret-key',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false } // Set to `true` if using HTTPS
-}))
 ////////////////////session is working/////////////////
 // Flash middleware
 app.use(flash());
-
 // Middleware to make flash messages available in views
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
@@ -56,14 +44,11 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-
 // Serve static files (CSS, images, etc.)
 app.use(express.static(path.join(__dirname, 'public')));
-
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
 // Middleware for session management
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
@@ -74,7 +59,6 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }));
-
 /* ************************************************
 Validation Middleware
 ************************************************* */
@@ -113,9 +97,7 @@ app.get('/inventory', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 //////////////////////////////////////////////////////////////////////
-
 // Custom Route - Display custom items
 app.get('/inventory/custom', async (req, res) => {
   try {
@@ -127,7 +109,6 @@ app.get('/inventory/custom', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 // Sedan Route - Display sedan-specific items
 app.get('/inventory/sedan', async (req, res) => {
   try {
@@ -139,7 +120,6 @@ app.get('/inventory/sedan', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 // SUV Route - Display SUV-specific items
 app.get('/inventory/suv', async (req, res) => {
   try {
@@ -151,7 +131,6 @@ app.get('/inventory/suv', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 // Truck Route - Display truck-specific items
 app.get('/inventory/trucks', async (req, res) => {
   try {
@@ -163,7 +142,6 @@ app.get('/inventory/trucks', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
-
 // Express Error Handler
 app.use(async (err, req, res, next) => {
   try {
@@ -179,17 +157,14 @@ app.use(async (err, req, res, next) => {
     res.status(500).send("An unexpected error occurred.");
   }
 });
-
 // Catch-all 404 handler for any routes that don't match
 app.use((req, res) => {
   res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
 });
-
 // Last route
 app.use((req, res, next) => {
   next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
 });
-
 /* **********************************
  * Local Server Information
  * Values from .env (environment) file
@@ -200,3 +175,4 @@ app.listen(port, () => {
   console.log(`App listening on ${host}:${port}`);
 });
 // Only one listen call to use port 5500
+
