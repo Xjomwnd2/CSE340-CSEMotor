@@ -90,22 +90,6 @@ nav li a:hover {
   color: #3a3a3a;
 }
 
-
-/* My Account Button (Right) */
-.my-account {
-  font-size: 16px;
-  color: white;
-  background-color: #444;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none; /* Remove underline */
-  float: right;
-}
-.my-account:hover {
-  background-color: #555; /* Hover effect */
-  cursor: pointer;
-}
-
 /*/////////////////////////////////////////////////////// */
 /* Main Content */
 main {
