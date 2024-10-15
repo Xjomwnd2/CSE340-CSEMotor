@@ -92,36 +92,6 @@ exports.checkClassificationData = [
 ];
 /////////////////////////////////////////////////////////////////
 
-// Sample route
-app.get('/', (req, res) => {
-  res.render('index', { title: 'CSE340 Motors Home' });
-});
-
-// Example route for querying the database
-app.get('/cars', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM cars');
-    res.json(result.rows);
-  } catch (error) {
-    console.error('Error executing query', error.stack);
-    res.status(500).send('Internal Server Error');
-  }
-});
-
-// Inventory Route - Display inventory items from the database
-app.get('/inventory', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM inventory');
-    const items = result.rows;
-    res.render('inventory', { title: 'Inventory List', items });
-  } catch (err) {
-    console.error('Error fetching inventory:', err);
-    res.status(500).send('Server Error');
-  }
-});
-/////////////////////////////////////////////////////////////////////
-
-
 //////////////////////////////////////////////////////////////////////
 
 // Custom Route - Display custom items
