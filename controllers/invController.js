@@ -11,7 +11,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
   const grid = await utilities.buildClassificationGrid(data);
   let nav = await utilities.getNav();
   const className = data[0].classification_name;
-
+  const classificationSelect = await utilities.buildClassificationList()
   // Render the view and pass the nav variable along with others
   res.render("./inventory/classification", {
     title: className + " vehicles",
@@ -19,6 +19,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
     grid,
   });
 };
+
 
 // Move module.exports outside of the function
 module.exports = invCont;
