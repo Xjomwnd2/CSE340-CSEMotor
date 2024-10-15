@@ -11,41 +11,31 @@ const bodyParser = require('body-parser');
 const { Pool } = require('pg');  // PostgreSQL module
 const path = require('path');
 const utilities = require('./utilities/utilities'); // Adjust the path as needed
-
-
-
+const pgSession = require('connect-pg-simple')(session);
+// Set up the connection pool for PostgreSQL
 //const pool = require('./database/');
+const pool = new Pool({
+  user: 'your_user',
+  host: 'localhost',
+  database: 'your_db',
+  password: 'your_password',
+  port: 5432,
+});
 
+app.use(session({
+  store: new pgSession({
+    pool: pool,                // Connection pool
+    tableName: 'session',      // Optionally change the table name
+  }),
+  secret: 'your_secret_key',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false }  // Set to true if using HTTPS
+}));
 // Initialize express app
 const app = express();
 
-// Define port, either from environment or default to 10000
-
-
-// Define your routes, middleware, etc.
-
-// Set up the connection pool for PostgreSQL
-// Comment this out if you are using the pool from your database module
-const pool = new Pool({
-  user: 'your_pg_user',  // Your PostgreSQL user
-  host: 'localhost',      // PostgreSQL host
-  database: 'motors_db',  // Your database name
-  password: 'your_password', // Your database password
-  port: 5432,             // PostgreSQL port
-}); 
-
-// Set up session middleware
-app.use(session({
-  secret: 'yourSecretKey', // Replace with your own secret key
-  resave: false, // Set to true if you want to force the session to be saved back to the store
-  saveUninitialized: true, // Save uninitialized sessions
-  cookie: { secure: false } // If you're not using HTTPS, set secure to false
-}));
 ////////////////////session is working/////////////////
-
-////////////////10000//////////////////////////////
-
-//////////////////////////////////////////////////
 // Flash middleware
 app.use(flash());
 
