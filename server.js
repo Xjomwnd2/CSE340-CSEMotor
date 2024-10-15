@@ -34,7 +34,13 @@ app.use(session({
 }));
 // Initialize express app
 const app = express();
-
+// Set up the session middleware before other routes or middleware
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Set to `true` if using HTTPS
+}))
 ////////////////////session is working/////////////////
 // Flash middleware
 app.use(flash());
