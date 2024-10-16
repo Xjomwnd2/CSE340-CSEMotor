@@ -15,6 +15,8 @@ const { checkClassificationData } = require('../middleware/validation');
 router.get('/add-classification', inventoryController.renderAddClassification);
 // Route to handle form submission
 router.post('/add-classification', checkClassificationData, inventoryController.addClassification);
+//inv/getInventory/:classification_id
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
 
 
 module.exports = router;
