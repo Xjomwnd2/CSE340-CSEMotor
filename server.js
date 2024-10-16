@@ -11,6 +11,7 @@ const { Pool } = require('pg');  // PostgreSQL module
 const path = require('path');
 const utilities = require('./utilities/utilities'); // Adjust the path as needed
 const pgSession = require('connect-pg-simple')(session);
+const app = express(); // Initialize the app here
 // Set up the connection pool for PostgreSQL
 //const pool = require('./database/');
 const pool = new Pool({
@@ -30,8 +31,20 @@ app.use(session({
   saveUninitialized: false,
   cookie: { secure: false }  // Set to true if using HTTPS
 }));
-/////////////////////////
+/////////////////////////mahoya////////////////////////
 
+// Configure session middleware
+app.use(session({
+  secret: 'yourSecret', // Replace with your secret key
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Change to 'true' when using HTTPS in production
+}));
+
+// Define a basic route
+app.get('/', (req, res) => {
+  res.send('Hello, Motors!');
+});
 ////////////////////session is working/////////////////
 // Flash middleware
 app.use(flash());
