@@ -33,17 +33,15 @@ app.use(session({
 }));
 /////////////////////////mahoya////////////////////////
 
-// Configure session middleware
-app.use(session({
-  secret: 'yourSecret', // Replace with your secret key
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false } // Change to 'true' when using HTTPS in production
-}));
 
-// Define a basic route
-app.get('/', (req, res) => {
-  res.send('Hello, Motors!');
+// Test the connection by querying the database
+pool.query('SELECT NOW()', (err, res) => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+  } else {
+    console.log('PostgreSQL connected successfully at:', res.rows[0].now);
+  }
+  pool.end(); // Close the connection after the test query
 });
 ////////////////////session is working/////////////////
 // Flash middleware
