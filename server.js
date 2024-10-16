@@ -16,45 +16,34 @@ const app = express(); // Initialize the app here
 /////////////////////////mahoya///////////////////////
 
 // Database configuration
+const { Pool } = require('pg');
 const pool = new Pool({
-  user: 'your_username',
+  user: 'yourUsername',
   host: 'localhost',
-  database: 'your_database_name',
-  password: 'your_password',
-  port: 5432,
+  database: 'yourDatabase',
+  password: 'yourPassword',
+  port: 5432,  // Or any other port you configured
 });
-app.use(session({
-  store: new pgSession({
-    pool: pool,                // Connection pool
-    tableName: 'session',      // Optionally change the table name
-  }),
-  secret: 'your_secret_key',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { secure: false }  // Set to true if using HTTPS
-}));
+
 async function testDatabaseConnection() {
   try {
-    // Attempt to connect to the database
     const client = await pool.connect();
-    console.log('Successfully connected to the database');
-
-    // Perform a simple query
-    const res = await client.query('SELECT NOW()');
-    console.log('Current time from database:', res.rows[0].now);
-
-    // Release the client back to the pool
-    client.release();
+    console.log('Connected to the database');
+    client.release();  // Always release the client back to the pool
   } catch (err) {
     console.error('Error connecting to the database', err);
-  } finally {
-    // End the pool
-    await pool.end();
   }
 }
 
-// Run the test function
 testDatabaseConnection();
+
+// Handle server shutdown gracefully
+process.on('SIGTERM', () => {
+  pool.end(() => {
+    console.log('Pool has ended');
+    process.exit(0);
+  });
+});
 
 ///////////////////////////////////////////////////////////////////
 // Test the connection by querying the database
