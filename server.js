@@ -30,6 +30,8 @@ app.use(session({
   saveUninitialized: false,
   cookie: { secure: false }  // Set to true if using HTTPS
 }));
+/////////////////////////
+
 ////////////////////session is working/////////////////
 // Flash middleware
 app.use(flash());
