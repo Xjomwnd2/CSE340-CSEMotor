@@ -13,11 +13,14 @@ const utilities = require('./utilities/utilities'); // Adjust the path as needed
 const pgSession = require('connect-pg-simple')(session);
 const app = express(); // Initialize the app here
 // Set up the connection pool for PostgreSQL
-//const pool = require('./database/');
+/////////////////////////mahoya////////////////////////
+const { Pool } = require('pg');
+
+// Database configuration
 const pool = new Pool({
-  user: 'your_user',
+  user: 'your_username',
   host: 'localhost',
-  database: 'your_db',
+  database: 'your_database_name',
   password: 'your_password',
   port: 5432,
 });
@@ -31,9 +34,30 @@ app.use(session({
   saveUninitialized: false,
   cookie: { secure: false }  // Set to true if using HTTPS
 }));
-/////////////////////////mahoya////////////////////////
+async function testDatabaseConnection() {
+  try {
+    // Attempt to connect to the database
+    const client = await pool.connect();
+    console.log('Successfully connected to the database');
 
+    // Perform a simple query
+    const res = await client.query('SELECT NOW()');
+    console.log('Current time from database:', res.rows[0].now);
 
+    // Release the client back to the pool
+    client.release();
+  } catch (err) {
+    console.error('Error connecting to the database', err);
+  } finally {
+    // End the pool
+    await pool.end();
+  }
+}
+
+// Run the test function
+testDatabaseConnection();
+
+///////////////////////////////////////////////////////////////////
 // Test the connection by querying the database
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
