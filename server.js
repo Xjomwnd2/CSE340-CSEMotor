@@ -13,8 +13,7 @@ const utilities = require('./utilities/utilities'); // Adjust the path as needed
 const pgSession = require('connect-pg-simple')(session);
 const app = express(); // Initialize the app here
 // Set up the connection pool for PostgreSQL
-/////////////////////////mahoya////////////////////////
-const { Pool } = require('pg');
+/////////////////////////mahoya///////////////////////
 
 // Database configuration
 const pool = new Pool({
