@@ -16,7 +16,6 @@ const app = express(); // Initialize the app here
 /////////////////////////mahoya///////////////////////
 
 // Database configuration
-const { Pool } = require('pg');
 const pool = new Pool({
   user: 'yourUsername',
   host: 'localhost',
