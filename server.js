@@ -17,7 +17,6 @@ const cookieParser = require("cookie-parser");
 const static = require("./routes/static");
 const baseController = require("./controllers/baseController");
 const invController = require('./controllers/invControllers.js');
-const invController = require('./controllers/invControllers');
 const inventoryRoute = require("./routes/inventoryRoute.js");
 const accountRoute = require('./routes/accountRoute.js');
 const messageRoute = require('./routes/messageRoute.js');
