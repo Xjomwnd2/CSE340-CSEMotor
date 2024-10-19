@@ -33,6 +33,10 @@ exports.someFunction = (req, res) => {
   res.redirect('/some-route');
 };
 
+app.get('/', (req, res) => {
+  req.flash("notice", "This is a flash message.")
+  res.render("index", {title: "Home"})
+})
 // Init
 const app = express();
 const env = require("dotenv").config();
