@@ -35,3 +35,17 @@ invCont.getInventoryJSON = async (req, res, next) => {
 }
 
 module.exports = invCont;
+
+// Example structure for invControllers.js
+const Inventory = require('../models/inventory'); // Adjust based on your model structure
+
+exports.getAllItems = (req, res) => {
+    Inventory.find({}, (err, items) => {
+        if (err) {
+            return res.status(500).json({ error: 'Failed to fetch items' });
+        }
+        res.json(items);
+    });
+};
+
+// Add more functions as needed
