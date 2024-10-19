@@ -15,14 +15,8 @@ const { Pool } = require('pg');  // PostgreSQL module
 const path = require('path');
 const pgSession = require('connect-pg-simple')(session);
 const app = express(); // Initialize the app here
-
-
-
-
-
 // Set up the connection pool for PostgreSQL
 /////////////////////////mahoya///////////////////////
-
 // Database configuration
 const pool = new Pool({
   user: 'yourUsername',
@@ -31,7 +25,6 @@ const pool = new Pool({
   password: 'yourPassword',
   port: 5432,  // Or any other port you configured
 });
-
 async function testDatabaseConnection() {
   try {
     const client = await pool.connect();
@@ -41,9 +34,7 @@ async function testDatabaseConnection() {
     console.error('Error connecting to the database', err);
   }
 }
-
 testDatabaseConnection();
-
 // Handle server shutdown gracefully
 process.on('SIGTERM', () => {
   pool.end(() => {
@@ -51,7 +42,6 @@ process.on('SIGTERM', () => {
     process.exit(0);
   });
 });
-
 ///////////////////////////////////////////////////////////////////
 // Test the connection by querying the database
 pool.query('SELECT NOW()', (err, res) => {
@@ -103,100 +93,51 @@ exports.checkClassificationData = [
     .matches(/^[a-zA-Z0-9]+$/)
     .withMessage('Classification name must not contain spaces or special characters'),
 ];
-/////////////////////////////////////////////////////////////////
-// Sample route
-app.get('/', (req, res) => {
-  res.render('index', { title: 'CSE340 Motors Home' });
-});
-// Example route for querying the database
-app.get('/cars', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM cars');
-    res.json(result.rows);
-  } catch (error) {
-    console.error('Error executing query', error.stack);
-    res.status(500).send('Internal Server Error');
-  }
-});
-// Inventory Route - Display inventory items from the database
-app.get('/inventory', async (req, res) => {
-  try {
-    const result = await pool.query('SELECT * FROM inventory');
-    const items = result.rows;
-    res.render('inventory', { title: 'Inventory List', items });
-  } catch (err) {
-    console.error('Error fetching inventory:', err);
-    res.status(500).send('Server Error');
-  }
-});
+/* ****************************************
+	*Routes
+**************************************** */
+App.use(static);
+// Index route
+app.get("/", utilities.handleErrors(baseController.buildHome))
+// Inventory route
+app.use("/inv", inventoryRoute)
+// Account Route
+app.use("/account", accountRoute)
+// File not found route
+app.use(async (req, res, next) => {
+  next({ status: 404, message: "Sorry, we appear to have lost that page." })
+})
+
+/////////////////////////// Routes to vehicle management /////////////////////////////////////
+router.get(
+  "/",
+  utilities.checkLogin,
+  utilities.checkUserLevel,
+  utilities.handleErrors(invController.showManagementPage)
+)
+
+router.get(
+  "/type/:classificationId",
+  utilities.handleErrors(invController.buildByClassificationId)
+)
+
+router.get(
+  "/detail/:invId",
+  utilities.handleErrors(invController.buildByVehicleId)
+)
+
+router.get(
+  "/new-classification",
+  utilities.checkLogin,
+  utilities.checkUserLevel,
+  utilities.handleErrors(invController.buildNewClassification)
+)
+///////////////////////
 //////////////////////////////////////////////////////////////////////
 // Custom Route - Display custom items
-app.get('/inventory/custom', async (req, res) => {
-  try {
-    const result = await pool.query("SELECT * FROM inventory WHERE category = 'Custom'");
-    const custom = result.rows;
-    res.render('custom', { title: 'Custom Collection', custom });
-  } catch (err) {
-    console.error('Error fetching custom items:', err);
-    res.status(500).send('Server Error');
-  }
-});
-// Sedan Route - Display sedan-specific items
-app.get('/inventory/sedan', async (req, res) => {
-  try {
-    const result = await pool.query("SELECT * FROM inventory WHERE category = 'Sedan'");
-    const sedan = result.rows;
-    res.render('sedan', { title: 'Sedan Collection', sedan });
-  } catch (err) {
-    console.error('Error fetching sedan:', err);
-    res.status(500).send('Server Error');
-  }
-});
-// SUV Route - Display SUV-specific items
-app.get('/inventory/suv', async (req, res) => {
-  try {
-    const result = await pool.query("SELECT * FROM inventory WHERE category = 'SUV'");
-    const suv = result.rows;
-    res.render('suv', { title: 'SUV Collection', suv });
-  } catch (err) {
-    console.error('Error fetching SUV:', err);
-    res.status(500).send('Server Error');
-  }
-});
-// Truck Route - Display truck-specific items
-app.get('/inventory/trucks', async (req, res) => {
-  try {
-    const result = await pool.query("SELECT * FROM inventory WHERE category = 'Truck'");
-    const trucks = result.rows;
-    res.render('trucks', { title: 'Trucks Collection', trucks });
-  } catch (err) {
-    console.error('Error fetching trucks:', err);
-    res.status(500).send('Server Error');
-  }
-});
-// Express Error Handler
-app.use(async (err, req, res, next) => {
-  try {
-    let nav = await utilities.getNav(); // Ensure this function exists
-    console.error(`Error at: "${req.originalUrl}": ${err.message}`);
-    res.status(err.status || 500).render("errors/error", {
-      title: err.status || 'Server Error',
-      message: err.message,
-      nav
-    });
-  } catch (error) {
-    console.error("Error rendering the error page:", error);
-    res.status(500).send("An unexpected error occurred.");
-  }
-});
-// Catch-all 404 handler for any routes that don't match
-app.use((req, res) => {
-  res.status(404).render('errors/error', { title: 'Page Not Found', message: 'Sorry, the page you are looking for does not exist!' });
-});
+
 // Last route
-app.use((req, res, next) => {
-  next({ status: 404, message: 'Sorry, we appear to have lost that page.' });
-});
+
 /* **********************************
  * Local Server Information
  * Values from .env (environment) file
@@ -207,4 +148,3 @@ app.listen(port, () => {
   console.log(`App listening on ${host}:${port}`);
 });
 // Only one listen call to use port 5500
-
