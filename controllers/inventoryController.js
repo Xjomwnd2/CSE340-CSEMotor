@@ -1,6 +1,11 @@
 // In inventoryController.js
 const inventoryModel = require('../models/inventoryModel');
 const { validationResult } = require('express-validator');
+const express = require("express");
+const router = express.Router();
+const invModel = require("../models/inventory-model");
+const utilities = require("../utilities");
+
 
 // Function to render the add-classification form
 exports.renderAddClassification = (req, res) => {
