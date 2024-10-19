@@ -5,7 +5,7 @@
 require('dotenv').config(); // Load environment variables
 const express = require('express');
 const router = new express.Router();
-const invController = require("../controllers/invControllers");
+const invController = require("../controllers/invControllers.js");
 const utilities = require("../utilities");
 const invValidate = require("../utilities/inventory-validation");
 const session = require('express-session');
