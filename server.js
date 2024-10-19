@@ -23,7 +23,13 @@ const intentionalErrorRoute = require("./routes/intentionalErrorRoute.js");
 const utilities = require("./utilities/index.js");
 const pool = require("./database");
 
+app.use(session({
+  secret: 'your secret key',
+  resave: false,
+  saveUninitialized: true
+}))
 
+app.use(flash())
 // Middleware
 app.use(session({ secret: 'your_secret', resave: true, saveUninitialized: true }));
 
