@@ -8,7 +8,7 @@ const router = new express.Router();
 const invController = require("../controllers/invControllers.js");
 const path = require('path');
 console.log(path.resolve(__dirname, './controllers/invControllers.js'));
-const invController = require("./controllers/invControllers.js");
+
 
 
 const utilities = require("../utilities");
