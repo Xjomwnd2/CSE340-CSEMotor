@@ -15,7 +15,6 @@ const invController = require("../controllers/invControllers.js");
 const inventoryRoute = require("./routes/inventoryRoute"); // Import your inventory routes
 const accountRoute = require("./routes/accountRoute"); // Import your account routes
 const accountValidation = require('./utilities/account-validation');
-const utilities = require('./utilities/utilities');
 
 const app = express(); // Initialize the app here
 
