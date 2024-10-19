@@ -19,7 +19,7 @@ const pool = require('../database/connection');
 
 const app = express(); // Initialize the app here
 // Set up the connection pool for PostgreSQL
-const pool = new Pool({
+ const pool = new Pool({
   user: process.env.DB_USER, // Use environment variables for sensitive data
   host: process.env.DB_HOST || 'localhost',
   database: process.env.DB_NAME,
@@ -43,7 +43,7 @@ process.on('SIGTERM', () => {
     console.log('Pool has ended');
     process.exit(0);
   });
-});
+}); 
 // Flash middleware
 app.use(flash());
 // Middleware to make flash messages available in views
