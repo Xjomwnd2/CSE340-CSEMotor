@@ -33,11 +33,6 @@ app.use(flash())
 // Middleware
 app.use(session({ secret: 'your_secret', resave: true, saveUninitialized: true }));
 
-// Correct Usage Example
-exports.someFunction = (req, res) => {
-  req.flash("notice", "This is a flash message.");
-  res.redirect('/some-route');
-};
 
 app.get('/', (req, res) => {
   req.flash("notice", "This is a flash message.")
