@@ -22,6 +22,13 @@ const messageRoute = require('./routes/messageRoute.js');
 const intentionalErrorRoute = require("./routes/intentionalErrorRoute.js");
 const utilities = require("./utilities/index.js");
 const pool = require("./database");
+const session = require('express-session');
+const flash = require('connect-flash');
+
+
+// Middleware
+app.use(session({ secret: 'your_secret', resave: true, saveUninitialized: true }));
+app.use(flash());
 
 // Init
 const app = express();
