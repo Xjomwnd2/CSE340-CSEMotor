@@ -1,5 +1,6 @@
 const pool = require("../database/")
 const db = require('../database/connection');
+ // Your database connection
 
 /* ***************************
  *  Get all classification data
