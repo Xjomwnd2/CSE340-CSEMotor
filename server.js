@@ -17,7 +17,6 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');  // PostgreSQL module
-const path = require('path');
 const pgSession = require('connect-pg-simple')(session);
 const app = express(); // Initialize the app here
 // Set up the connection pool for PostgreSQL
