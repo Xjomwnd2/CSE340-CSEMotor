@@ -14,3 +14,4 @@ exports.someFunction = (req, res) => {
   req.flash("notice", "This is a flash message.");
   // other code...
 };
+console.log("Request object:", req);
