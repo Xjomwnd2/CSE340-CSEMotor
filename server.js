@@ -78,6 +78,7 @@ app.use(cookieParser())
 // JWT checker
 app.use(utilities.checkJWTToken);
 
+
 /* ***********************
  * View Engine and Templates
  *************************/
@@ -89,6 +90,10 @@ app.set("layout", "./layouts/layout"); // Not at view root
  * Routes
  *************************/
 app.use(static);
+
+app.use(flash());
+app.use(express.urlencoded({ extended: true })); // 
+
 // Index route
 app.get("/", utilities.handleErrors(baseController.buildHome));
 // Inventory routes
@@ -103,7 +108,9 @@ app.use("/ierror", intentionalErrorRoute);
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Unfortunately, we don\'t have that page in stock.'})
 })
+router.get('/some-route', baseController.someFunction);
 
+module.exports = router;
 /* ***********************
 * Express Error Handler
 * Place after all other middleware
