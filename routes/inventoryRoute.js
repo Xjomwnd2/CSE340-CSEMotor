@@ -13,7 +13,7 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get('/inventory', (req, res) => {
     res.send('Inventory data');
 });
-const invController = require("../controllers/invController");
+
 // In inventoryRoutes.js
 const { checkClassificationData } = require('../middleware/validation');
 // Route to render the form
