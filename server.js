@@ -22,14 +22,27 @@ const messageRoute = require('./routes/messageRoute.js');
 const intentionalErrorRoute = require("./routes/intentionalErrorRoute.js");
 const utilities = require("./utilities/index.js");
 const pool = require("./database");
-const session = require('express-session');
 const flash = require('connect-flash');
 
 
 // Middleware
 app.use(session({ secret: 'your_secret', resave: true, saveUninitialized: true }));
 app.use(flash());
+// Middleware setup
+app.use(session({ secret: 'your_secret', resave: true, saveUninitialized: true }));
+app.use(flash());
 
+// Correct Usage Example
+exports.someFunction = (req, res) => {
+  req.flash("notice", "This is a flash message.");
+  res.redirect('/some-route');
+};
+
+// Example route
+app.get('/some-route', (req, res) => {
+    req.flash("notice", "This is a flash message.");
+    res.send("Flash message set!");
+});
 // Init
 const app = express();
 const env = require("dotenv").config();
