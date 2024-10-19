@@ -15,7 +15,7 @@ const invController = require("../controllers/invControllers.js");
 const inventoryRoute = require("./routes/inventoryRoute"); // Import your inventory routes
 const accountRoute = require("./routes/accountRoute"); // Import your account routes
 const accountValidation = require('./utilities/account-validation');
-const pool = require('../database/connection')
+const pool = require('../database/connection');
 
 const app = express(); // Initialize the app here
 // Set up the connection pool for PostgreSQL
