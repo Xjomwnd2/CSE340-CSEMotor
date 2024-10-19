@@ -18,32 +18,18 @@ const accountValidation = require('./utilities/account-validation');
 const pool = require('../database/connection');
 
 const app = express(); // Initialize the app here
-// Set up the connection pool for PostgreSQL
+
+// Declare the pool variable only once
 const pool = new Pool({
-  user: process.env.DB_USER, // Use environment variables for sensitive data
+  user: process.env.DB_USER,
   host: process.env.DB_HOST || 'localhost',
   database: process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT || 5432,  // Use environment variable or default port
+  port: process.env.DB_PORT || 5432,
 });
-// Test the database connection
-async function testDatabaseConnection() {
-  try {
-    const client = await pool.connect();
-    console.log('Connected to the database');
-    client.release();  // Always release the client back to the pool
-  } catch (err) {
-    console.error('Error connecting to the database', err);
-  }
-}
-testDatabaseConnection();
-// Handle server shutdown gracefully
-process.on('SIGTERM', () => {
-  pool.end(() => {
-    console.log('Pool has ended');
-    process.exit(0);
-  });
-});
+
+// Some other code...
+
 // Flash middleware
 app.use(flash());
 // Middleware to make flash messages available in views
