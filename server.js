@@ -4,14 +4,22 @@
  *******************************************/
 require('dotenv').config(); // Load environment variables
 const express = require('express');
+const router = new express.Router();
+const invController = require("../controllers/invControllers");
+const utilities = require("../utilities");
+const invValidate = require("../utilities/inventory-validation");
 const session = require('express-session');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const { Pool } = require('pg');  // PostgreSQL module
 const path = require('path');
-const utilities = require('./utilities/utilities'); // Adjust the path as needed
 const pgSession = require('connect-pg-simple')(session);
 const app = express(); // Initialize the app here
+
+
+
+
+
 // Set up the connection pool for PostgreSQL
 /////////////////////////mahoya///////////////////////
 
