@@ -8,18 +8,15 @@ const path = require('path');
 const session = require('express-session');
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
-const { Pool } = require('pg');  // PostgreSQL module
+const { Pool } = require('pg'); // PostgreSQL module
 const pgSession = require('connect-pg-simple')(session);
 const utilities = require('./utilities'); 
 const invController = require("../controllers/invControllers.js");
 const inventoryRoute = require("./routes/inventoryRoute"); // Import your inventory routes
 const accountRoute = require("./routes/accountRoute"); // Import your account routes
 const accountValidation = require('./utilities/account-validation');
-const pool = require('../database/connection');
 
-const app = express(); // Initialize the app here
-
-// Declare the pool variable only once
+// Create a new Pool instance
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST || 'localhost',
@@ -28,7 +25,7 @@ const pool = new Pool({
   port: process.env.DB_PORT || 5432,
 });
 
-// Some other code...
+const app = express(); // Initialize the app here
 
 // Flash middleware
 app.use(flash());
@@ -46,10 +43,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
 // Middleware for session management
 app.use(session({
   store: new pgSession({
-    pool: pool, // Use the existing connection pool
+    pool: pool, // Use the new connection pool
     createTableIfMissing: true,
   }),
   secret: process.env.SESSION_SECRET,
@@ -57,19 +55,6 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }));
-/* ************************************************
- * Validation Middleware
- ************************************************* */
-// In validation.js (middleware)
-const { check } = require('express-validator');
-// Middleware to validate the classification name (no spaces or special characters)
-exports.checkClassificationData = [
-  check('classificationName')
-    .trim()
-    .matches(/^[a-zA-Z0-9]+$/)
-    .withMessage('Classification name must not contain spaces or special characters'),
-];
-// ... (previous code remains the same)
 
 /* ****************************************
  * Routes
@@ -77,7 +62,7 @@ exports.checkClassificationData = [
 app.use(express.static('public')); // Corrected static middleware usage
 
 // Index route
-app.get("/", utilities.handleErrors(baseController.buildHome));
+app.get("/", utilities.handleErrors(invController.buildHome));
 
 // Inventory routes
 app.use("/inv", inventoryRoute);
@@ -118,8 +103,8 @@ app.get("/inv/new-inventory",
 app.post("/inv/new-classification",
   utilities.checkLogin,
   utilities.checkUserLevel,
-  invValidate.classificationRules(),
-  invValidate.checkClassificationData,
+  accountValidation.classificationRules(),
+  accountValidation.checkClassificationData,
   utilities.handleErrors(invController.addClassification)
 );
 
@@ -127,8 +112,8 @@ app.post("/inv/new-classification",
 app.post("/inv/new-inventory",
   utilities.checkLogin,
   utilities.checkUserLevel,
-  invValidate.inventoryRules(),
-  invValidate.checkInventoryData,
+  accountValidation.inventoryRules(),
+  accountValidation.checkInventoryData,
   utilities.handleErrors(invController.addInventoryItem)
 );
 
@@ -152,6 +137,7 @@ app.use(async (req, res, next) => {
 app.use(async (err, req, res, next) => {
   let nav = await utilities.getNav();
   console.error(`Error at: "${req.originalUrl}": ${err.message}`);
+  let message;
   if(err.status == 404){ 
     message = err.message;
   } else {
@@ -163,6 +149,7 @@ app.use(async (err, req, res, next) => {
     nav
   });
 });
+
 /* **********************************
  * Local Server Information
  * Values from .env (environment) file
