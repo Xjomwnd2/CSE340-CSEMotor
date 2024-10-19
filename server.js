@@ -13,12 +13,16 @@ app.get("/", (req, res) => {res.send("Welcome home!")})
 /* ******************************************
  * Server host name and port
  * ***************************************** */
-const HOST = 'localhost'
-const PORT = 3000
+c
 
 /* ***********************
-* Log statement to confirm server operation
-* *********************** */
+ * Local Server Information
+ * Values from .env (environment) file
+ *************************/
+/* ***********************
+ * Log statement to confirm server operation
+ *************************/
+const PORT = process.env.PORT || 5500; // Ensure there's a default port
 app.listen(PORT, () => {
-console.log(`trial app listening on ${HOST}:${PORT}`)
-})
+  console.log(`app listening on localhost:${PORT}`);
+});
