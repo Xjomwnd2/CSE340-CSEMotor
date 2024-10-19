@@ -34,7 +34,6 @@ module.exports = { getClassifications, getInventoryByClassificationId };
  *  This model will handle the insertion of the new classification into the database
  * ******************************************************************************** */
 // In inventoryModel.js
-const db = require('../database/connection'); // Your database connection
 
 // Function to insert classification into the database
 exports.insertClassification = async (classificationName) => {
