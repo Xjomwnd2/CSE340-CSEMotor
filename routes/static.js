@@ -1,9 +1,0 @@
-const express = require('express');
-const router = express.Router();
-
-// Define your static routes here
-router.get('/', (req, res) => {
-  res.send('Welcome to the static route');
-});
-
-module.exports = router;
